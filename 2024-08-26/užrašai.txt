@@ -1,0 +1,10 @@
+Pirmos pamokos užrašai: 
+
+- Pasijungimas į live serveri per telefona reikia eiti per cmd ir įrašyti į cmd ipconfig ir nukopijuoti ipv4 
+ir įklijuoti į paieškos laukelį adresas:5500 būtinai turi buti port'as 5500.
+
+Užduotis:
+
+- HTML užduotis #1:
+Atkurti kaip įmanoma tiksliau Ričardo Giro aprašymą (1 pastraipą) 
+iš wikipedia (pozicionavimas, pastraipos ilgis ir nuotrauka neprivaloma). https://en.wikipedia.org/wiki/Richard_Gere
