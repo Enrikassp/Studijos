@@ -1,0 +1,11 @@
+table, td, th {
+    border: 1px solid black;
+}
+
+table:hover, th, td {
+    border-collapse: collapse;
+}
+
+.red_background {
+    background-color: red;
+}

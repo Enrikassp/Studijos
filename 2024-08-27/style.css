@@ -1,0 +1,5 @@
+table#semantiska th,
+table#semantiska td,
+table#semantiska {
+    border: 1px solid black;
+}
