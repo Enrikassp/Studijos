@@ -4,6 +4,122 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Užduotis</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="mainBox">
+      <header>
+        <h3>PVM Sąskaita-faktūra</h3>
+        <p>Serija 859 Nr. 012</p>
+        <p>2024-08-22</p>
+      </header>
+
+      <div class="details">
+        <div class="seller_desc">
+          <h3>Pardavėjas:</h3>
+          <div class="seller_desc_contents">
+            <div>
+              <span>UAB „ĮMONĖ“</span>
+              <p>(pavadinimas)</p>
+            </div>
+            <div>
+              <span>Gatvės g.15, Vilnius</span>
+              <p>(adresas)</p>
+            </div>
+            <div>
+              <span>30001231231</span>
+              <p>(pardavėjo kodas)</p>
+            </div>
+            <div>
+              <span>LT10000323632635</span>
+              <p>(PVM mokėtojo kodas)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="buyer_desc">
+          <h3>Pirkėjas:</h3>
+          <div class="buyer_desc_contents">
+            <div>
+              <span>UAB „BENDROVĖ“</span>
+              <p>(pavadinimas)</p>
+            </div>
+            <div>
+              <span>Alėjos al. 10, Kaunas</span>
+              <p>(adresas)</p>
+            </div>
+            <div>
+              <span>30001548888</span>
+              <p>(pardavėjo kodas)</p>
+            </div>
+            <div>
+              <span>LT100001548888</span>
+              <p>(PVM mokėtojo kodas)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Eil. Nr.</th>
+            <th>Pavadinimas</th>
+            <th>Mat. vnt</th>
+            <th>Kiekis</th>
+            <th>Kaina (Be pvm) eur</th>
+            <th>Suma (Be pvm) eur</th>
+            <th>Pvm tarifas (%)</th>
+            <th>Pvm suma eur</th>
+            <th>Suma eur</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Tušinukai XF001</td>
+            <td>Vnt.</td>
+            <td>10</td>
+            <td>1.00</td>
+            <td>10.00</td>
+            <td>21</td>
+            <td>2.10</td>
+            <td>12.10</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Kompiuterių ekranai</td>
+            <td>Vnt.</td>
+            <td>1</td>
+            <td>149.00</td>
+            <td>149.00</td>
+            <td>21</td>
+            <td>31.29</td>
+            <td>180.29</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Skalbimo mašina</td>
+            <td>Vnt.</td>
+            <td>1</td>
+            <td>500.00</td>
+            <td>500.00</td>
+            <td>21</td>
+            <td>105.00</td>
+            <td>605.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="totalSum">
+        <p>Suma</p>
+        <p>797.39€</p>
+      </div>
+
+      <div class="footer">
+        <p>Suma žodžiais: Dvylika eurų 10 ct.</p>
+        <p>Sąskaita išrašė: Jonas vardaitis</p>
+      </div>
+    </div>
+  </body>
 </html>

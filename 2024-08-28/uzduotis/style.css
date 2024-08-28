@@ -1,0 +1,143 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainBox {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+header > h3 {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header > p {
+    margin: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.seller_desc > .seller_desc_contents {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.seller_desc > .seller_desc_contents > div {
+    text-align: center;
+    width: 200px;
+}
+
+.seller_desc > .seller_desc_contents > div > span {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-bottom: 2px solid black;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.seller_desc > .seller_desc_contents > div > p {
+    font-size: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.seller_desc > h3 {
+    text-align: left;
+    font-size: 14px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.buyer_desc { 
+    padding-right: 70px;
+}
+
+.buyer_desc > .buyer_desc_contents {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.buyer_desc > .buyer_desc_contents > div {
+    text-align: center;
+    width: 200px;
+}
+
+.buyer_desc > .buyer_desc_contents > div > span {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-bottom: 2px solid black;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.buyer_desc > .buyer_desc_contents > div > p {
+    font-size: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.buyer_desc > h3 {
+    text-align: left;
+    font-size: 14px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+table { 
+    width: 900px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table > thead > tr {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+table > tbody > tr {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.totalSum {
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+}
+
+.totalSum > p {
+    margin: 0;
+    padding: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.footer { 
+    padding: 20px;
+}
+
+.footer > p {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}

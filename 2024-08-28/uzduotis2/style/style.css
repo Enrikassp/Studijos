@@ -1,0 +1,28 @@
+.tablink_info {
+    display: flex;
+    gap: 100px;
+}
+
+.trackers > h1 {
+    color: #c8532e;
+}
+
+.trackers > p {
+    color: #d7d5d6;
+}
+
+.bandwidth > h1 {
+    color: #979ad9;
+}
+
+.bandwidth > p {
+    color: #d7d5d6;
+}
+
+.timesaved > h1 {
+    color:#f9f9f9;
+}
+
+.timesaved > p {
+    color: #d7d5d6;
+}
