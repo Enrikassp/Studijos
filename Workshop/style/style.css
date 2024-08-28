@@ -1,14 +1,21 @@
-body {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    vertical-align: top;
+}
+
+body {
     background-image: url('/Workshop/images/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
     background-position: center;
+}
+
+body > div {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -18,6 +25,7 @@ nav {
 }
 
 nav > div { 
+    padding-top: 30px;
     padding-right: 50px;
     padding-left: 50px;
 }
@@ -46,6 +54,7 @@ nav > div {
     justify-content: center;
     align-items: center;
     width: 100%;
+    gap: 30px;
 }
 
 .mainBody > h3 > a {
