@@ -1,19 +1,7 @@
-td, th {
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 1px solid lightgray;
-    border-right: 1px solid lightgray;
-}
-table {
-    border-top: 1px solid lightgray;
-    border-left: 1px solid lightgray;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-}
 
-/* table:hover, th, td {
-    border-collapse: collapse;
-} */
+table,td, th  {
+    border-style: inset;
+}
 
 .red_background {
     background-color: rgb(233, 75, 75);
