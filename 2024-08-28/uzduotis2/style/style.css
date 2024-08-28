@@ -1,28 +1,251 @@
+body { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
 .tablink_info {
     display: flex;
     gap: 100px;
+    padding: 20px;
+    padding-left: 60px;
 }
 
+.top_page {
+    display: flex;
+    justify-content: space-between;
+} 
+
 .trackers > h1 {
+    margin-bottom: 0px;
     color: #c8532e;
+    font-family: "Montserrat", sans-serif;
 }
 
 .trackers > p {
     color: #d7d5d6;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 10px;
 }
 
 .bandwidth > h1 {
+    margin-bottom: 0px;
     color: #979ad9;
+    font-family: "Montserrat", sans-serif;
+}
+
+.bandwidth > h1 > span {
+    font-weight: normal;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .bandwidth > p {
     color: #d7d5d6;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 10px;
 }
 
 .timesaved > h1 {
+    margin-bottom: 0px;
     color:#f9f9f9;
+    font-family: "Montserrat", sans-serif;
 }
 
 .timesaved > p {
     color: #d7d5d6;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 10px;
+}
+
+.more_info {
+    background-color: #0f0f13;
+    border-radius: 20px;
+}
+
+.more_info > .more_info_head {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 15px;
+    padding-left: 30px;
+}
+
+.more_info > .more_info_head i {
+    color: rgb(173, 174, 175);
+    font-size: 20px;
+}
+
+.more_info > .more_info_head > p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.more_info > .talk {
+    background-color: #16161c;
+    height: 270px;
+    width: 300px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    z-index: 1;
+}
+
+.more_info {
+    margin-top: 40px;
+    margin-right: 40px;
+}
+
+.more_info > .talk > .talk_head {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.more_info > .talk > .talk_head > .talk_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.more_info > .talk > .talk_head > .talk_header i {
+    color: rgb(173, 174, 175);
+    font-size: 20px;
+}
+
+.more_info > .talk > .talk_head > .talk_header p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.more_info > .talk > .talk_head > .more_info_icon i {
+    color: lightgray;
+    font-size: 20px;
+}
+
+.more_info > .talk > .talk_body {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: 100%;
+    gap: 5px;
+}
+
+.more_info > .talk > .talk_body p {
+    width: 250px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
+.more_info > .talk > .talk_body button {
+    background-color: #423ce2;
+    height: 50px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.more_info > .talk > .talk_body .about  {
+    text-align: center;
+}
+
+.more_info > .talk > .talk_body > .about > a {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    width: 100%; 
+    height: 60px !important;
+}
+
+.footer > .authory > p {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    padding-left: 40px;
+}
+
+.footer > .searchInput {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    border-radius: 15px;
+    width: 700px;
+    background-color: rgba(255, 255, 255, 0.20);
+    padding: 0 20px; 
+    border: 1px solid lightgray;
+    box-sizing: border-box; 
+}
+
+.footer > .searchInput input {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    padding-left: 20px;
+    flex: 1;
+    color: white;
+    font-size: 16px; 
+}
+
+.footer > .searchInput > #glass {
+    color: lightgray;
+    font-size: 20px;
+    margin-left: 10px; 
+}
+
+.footer > .searchInput > #internet {
+    color: lightgray;
+    font-size: 20px;
+    margin-right: 10px; 
+}
+
+.footer > .customize {
+    display: flex;
+    align-items: center;
+}
+
+.footer > .customize_btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.footer > .customize {
+    padding-right: 40px;
+}
+
+.footer > .customize > .customize_btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
 }
