@@ -1,1 +1,1 @@
-JAVASCRIPT studijos 2024
+FRONT END & BACK END studijos 2024
