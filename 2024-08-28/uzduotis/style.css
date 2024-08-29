@@ -7,6 +7,7 @@ body {
 .mainBox {
     border: 1px solid black;
     padding: 20px;
+    height: 94vh;
 }
 
 header {
