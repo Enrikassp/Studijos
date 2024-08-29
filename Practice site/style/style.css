@@ -1,0 +1,360 @@
+/* Ekrano koregavimas nuo didžio */
+
+@media screen and (max-width: 800px) {
+    nav .container .right {
+        display: none;
+    }
+    nav .container .left .nav-link {
+        display: none;
+    }
+    .main-body .container .main-body-contents {
+        flex-direction: column !important;
+    }
+
+    .information .container .information_box_container {
+        flex-direction: column !important;
+    }
+}
+/* Pagrindiniai elementai */
+* { 
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 900px;
+    height: 100%;
+}
+
+/* NAVIGACIJA */
+
+nav { 
+    background-color: #222222;
+    line-height: 20px;
+    min-height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav .container { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 50px;
+}
+
+/* Hover effektai bei active klasė */
+
+nav a {
+    color:#9D9D9D;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+nav a.active {
+    background-color: #080808;
+    color: #fff;
+}
+
+nav a:hover {
+    color: white;
+    background-color: #080808;
+}
+
+/* Kairyses puses navigacija */
+
+nav .container .left .logo i {
+    font-size: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+nav .container .left .logo {
+    font-weight:600;
+    font-size: 16px;
+}
+
+nav .container .left .services i {
+    margin-left: 5px;
+}
+
+nav .container .left {
+    display: flex;
+}
+
+nav .container .left a {
+    padding: 0px 10px;
+}
+
+/* Dešines pusės navigacija */
+
+nav .container .right {
+    margin-right: 20px;
+}
+
+nav .container .right input {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+nav .container .right button {
+    outline: none;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+/* HERO  */
+
+.hero-box {
+    background-color: #9ACD32;
+    min-height: 280px;
+    margin-top: 50px;
+}
+
+.hero-box .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 280px;
+    text-align: center;
+    padding: 60px 10px;
+}
+
+.hero-box .container h1 {
+    margin: 0;
+    color: #ADFF2F;
+    font-family: "Roboto", sans-serif;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.hero-box .container p {
+    margin: 0;
+    color: #ADFF2F;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-box .container button {
+    height: 35px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 0 15px;
+    background-color: #337AB7;
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+    font-size: 15px;
+}
+
+/* MAIN BODY  */
+
+.main-body {
+    box-sizing: border-box;
+    padding: 20px 10px;
+}
+
+.main-body .container {
+    text-align: center;
+    padding: 20px 60px;
+}
+
+.main-body .container .main-body-heading {
+    margin: 0;
+}
+
+.main-body .container .main-body-heading h1 {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 20px ;
+    margin-top: 30px;
+    font-weight: normal;
+    font-size: 40px;
+}
+
+.main-body .container .main-body-heading h1 span {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    color:#868686;
+    font-size: 30px;
+}
+
+.main-body .container .main-body-heading p {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    font-size: 14px;
+    color:#9D9D9D;
+    /* width: fit-content; */
+}
+
+/* Main body content box styling */
+
+.main-body .container .main-body-contents {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.main-body .container .main-body-content-box {
+    width: 350px;
+}
+
+.main-body .container .main-body-content-box .main-body-content-box-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+    min-height: 300px;
+    width: 350px;
+}
+
+.main-body .container .main-body-content-box .main-body-content-box-image h1 {
+    color: #B0AAAA;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+}
+
+.main-body .container .main-body-content-box .main-body-content-box-desc { 
+    margin-top: 10px;
+    text-align: center;
+}
+
+.main-body .container .main-body-content-box .main-body-content-box-desc a {
+    color: #407AB7;
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+}
+
+.main-body .container .main-body-content-box .main-body-content-box-desc a:hover {
+    color: #23527C;
+    text-decoration: underline;
+}
+
+.main-body .container .main-body-content-box .main-body-content-box-desc p {
+    color: #B0AAAA;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+}
+
+/* Information      */
+
+.information {
+    background-color: #DAA520;
+    min-height: 380px;
+    padding: 40px 0px;
+}
+
+.information .container .information_box_container .information_box .information_box_image {
+    background-color: #EEEEEE;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.information .container .information_box_container .information_box .information_box_image h1 {
+    font-family: "Roboto", sans-serif;
+    color: #B0AAAA;
+    font-size: 12px;
+}
+
+.information .container {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+}
+
+.information .container .information_box_container {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    flex-direction: row;
+    gap: 90px;
+    width: fit-content;
+}
+
+.information .container .information_box_container .information_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+}
+
+.information .container .information_box_container .information_box .information_box_desc {
+    text-align: center;
+}
+
+.information .container .information_box_container .information_box .information_box_desc h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.information .container .information_box_container .information_box .information_box_desc p {
+    font-family: "Roboto", sans-serif;
+    margin-top: 0;
+    font-size: 15px;
+
+}
+.information .container .information_box_container .information_box .information_box_desc .information_box_desc-btn {
+    font-family: "Roboto", sans-serif;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+/* footer */
+
+.footer {
+    min-height: 100px;
+    padding: 30px 0px;
+    text-align: center;
+}
+
+.footer .footer_heading a {
+    font-size: 14px;
+    color: #338FD0;
+    font-family: "Roboto", sans-serif;
+    border-right: 1px solid #B0AAAA;
+    padding: 0px 5px;
+}
+
+.footer .footer_heading a:last-child{ 
+    border: none;
+}
+
+.footer .footer_heading a:hover {
+    text-decoration: underline;
+    color: #23527C;
+}
+
+.footer .footer_copyright p {
+    font-family: "Roboto", sans-serif;
+    color: #B0AAAA;
+    font-size: 14px;
+}
