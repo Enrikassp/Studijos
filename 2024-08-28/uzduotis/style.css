@@ -35,6 +35,7 @@ header > p {
     display: flex;
     flex-direction: column;
     width: 200px;
+    gap: 20px;
 }
 
 .seller_desc > .seller_desc_contents > div {
@@ -53,6 +54,7 @@ header > p {
 }
 
 .seller_desc > .seller_desc_contents > div > p {
+    margin: 0;
     font-size: 10px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -71,6 +73,7 @@ header > p {
     display: flex;
     flex-direction: column;
     width: 200px;
+    gap: 20px;
 }
 
 .buyer_desc > .buyer_desc_contents > div {
@@ -89,6 +92,7 @@ header > p {
 }
 
 .buyer_desc > .buyer_desc_contents > div > p {
+    margin: 0;
     font-size: 10px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
