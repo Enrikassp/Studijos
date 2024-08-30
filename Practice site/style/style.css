@@ -21,6 +21,7 @@
 }
 body {
     margin: 0;
+    /* overflow: ; */
 }
 
 a {
@@ -113,6 +114,11 @@ nav .container .right button {
     font-family: "Roboto", sans-serif;
     border-radius: 5px;
     padding: 10px 15px;
+    cursor: pointer;
+}
+
+nav .container .right button:hover {
+    background-color: #dadada;
 }
 
 /* HERO  */
@@ -159,6 +165,11 @@ nav .container .right button {
     font-family: "Roboto", sans-serif;
     color: #fff;
     font-size: 15px;
+    cursor: pointer;
+}
+
+.hero-box .container button:hover {
+    background-color: #346ea1;
 }
 
 /* MAIN BODY  */
@@ -212,7 +223,8 @@ nav .container .right button {
 }
 
 .main-body .container .main-body-content-box {
-    width: 350px;
+    /* width: 350px; */
+    width: auto;
 }
 
 .main-body .container .main-body-content-box .main-body-content-box-image {
@@ -223,6 +235,7 @@ nav .container .right button {
     border-radius: 5px;
     min-height: 300px;
     width: 350px;
+    cursor: pointer;
 }
 
 .main-body .container .main-body-content-box .main-body-content-box-image h1 {
@@ -278,7 +291,7 @@ nav .container .right button {
 }
 
 .information .container {
-    padding: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
     place-items: center;
@@ -326,6 +339,11 @@ nav .container .right button {
     border: none;
     padding: 10px 15px;
     font-size: 14px;
+}
+
+.information .container .information_box_container .information_box .information_box_desc .information_box_desc-btn:hover {
+    background-color: #dadada;
+    cursor: pointer;
 }
 
 /* footer */
