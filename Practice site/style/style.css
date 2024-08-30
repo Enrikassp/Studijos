@@ -4,11 +4,23 @@
     #hideOnMobile {
         display: none;
     }
+
     #showOnMobile {
         display: flex;
     }
+
     nav .container .left .nav-link {
         display: none;
+    }
+
+    .dropbtn { 
+        display: none;
+    }
+    .main-body .container .main-body-content-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
     .main-body .container .main-body-contents {
         flex-direction: column !important;
@@ -18,10 +30,12 @@
         flex-direction: column !important;
     }
 }
+
 /* Pagrindiniai elementai */
 * { 
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     /* overflow: ; */
@@ -33,7 +47,7 @@ a {
 
 .container {
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 1080px;
     height: 100%;
 }
 
@@ -96,6 +110,48 @@ nav .container .left {
 
 nav .container .left a {
     padding: 0px 10px;
+}
+
+/* DROPDOWN FUNKCIJA    */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #9D9D9D;
+    padding: 16px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #080808}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #080808;
 }
 
 /* Dešines pusės navigacija */
