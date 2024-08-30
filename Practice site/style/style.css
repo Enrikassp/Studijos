@@ -1,8 +1,11 @@
 /* Ekrano koregavimas nuo didžio */
 
 @media screen and (max-width: 800px) {
-    nav .container .right {
+    #hideOnMobile {
         display: none;
+    }
+    #showOnMobile {
+        display: flex;
     }
     nav .container .left .nav-link {
         display: none;
@@ -108,7 +111,7 @@ nav .container .right input {
     padding: 10px 15px;
 }
 
-nav .container .right button {
+nav .container .right .search-button {
     outline: none;
     border: none;
     font-family: "Roboto", sans-serif;
@@ -117,8 +120,19 @@ nav .container .right button {
     cursor: pointer;
 }
 
-nav .container .right button:hover {
+nav .container .right .search-button:hover {
     background-color: #dadada;
+}
+
+nav .container .right .list-button-mobile {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    display: none;
+    color: #D3D3D3;
+    padding: 5px 10px;
+    border: 1px solid #3d3d3d;
+    border-radius: 5px;
 }
 
 /* HERO  */
