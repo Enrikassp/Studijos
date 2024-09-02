@@ -1,0 +1,97 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.bg-green {
+    background-color: green;
+}
+ 
+/* Sekančios dvi klasės išcentruoja elementus centre */
+.center-element {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+}
+
+/* img {
+    width: 200px;
+} */
+
+.min-width-400 {
+    min-width: 400px; 
+}
+
+.max-width-700 {
+    max-width: 700px;
+}
+
+.min-height-400 {
+    min-height: 400px;
+}
+
+.max-height-700 {
+    max-height: 700px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: beige;
+    border: 1px solid black;
+}
+
+.positioning-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 25px;
+    column-gap: 10px;
+}
+
+.last {
+    position: relative;
+    bottom: -20px;
+    right: 20px;
+    background-color: rgb(185, 185, 170);
+}
+
+section {
+    background-color: chartreuse;
+    height: 300px;
+    margin-top:80px;
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    background-color: red;
+}
+
+header {
+    /* position: relative; */
+    margin-top:80px;
+    padding: 40px;
+    background-color: blueviolet;
+}
+
+.bl {
+    bottom: 5px;
+    left: 5px;
+}
+
+.tr {
+    top: 5px;
+    right: 5px;
+}
+
+.center {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    /* transform: translateY(-50%); */
+}
