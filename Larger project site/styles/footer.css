@@ -36,7 +36,7 @@ footer .footer-contents .right-footer .information-list .information ul {
 footer .footer-contents .right-footer .information-list .information ul li {
     position: relative;
     list-style: none;
-    color:#6c757d;
+    color:var(--pilka-spalva);;
     font-family: "Mandali", sans-serif;
     cursor: pointer;
 }
@@ -51,7 +51,7 @@ footer .footer-contents .right-footer .information-list .information ul li:hover
     content: "●";
     position: absolute;
     left: -15px;
-    color: #1ce1ac;
+    color: var(--zalia-spalva);
 }
 
 /* // NEWSLETTER SECTION // */
@@ -63,7 +63,7 @@ footer .newsletter-container {
 }
 
 footer .newsletter-container .container {
-    background-color: #343a40;
+    background-color: var(--tamsi-spalva);;
     border-radius: 5px;
     padding: 50px;
     min-height: 100px;
@@ -120,7 +120,7 @@ footer .newsletter-container .right-side .input-container input {
 }
 
 footer .newsletter-container .right-side .input-container button {
-    background-color: #1ce1ac;
+    background-color: var(--zalia-spalva);
     outline: none;
     border: none;
     font-family: "Mandali", sans-serif;

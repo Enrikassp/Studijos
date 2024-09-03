@@ -38,7 +38,7 @@
     border-radius: 30% 70% 70% 30% / 50% 50% 50% 50%;
     height: 100px;
     width: 100px;
-    background-color: #1ce1ac;
+    background-color: var(--zalia-spalva);
     opacity: 0.15;
     z-index: -1;
 }

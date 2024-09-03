@@ -1,3 +1,9 @@
+:root {
+    --tamsi-spalva: #343a40; 
+    --pilka-spalva: #6c757d;
+    --zalia-spalva: #1ce1ac;
+}
+
 @media screen and (max-width: 800px) {
     .right-nav .nav-item-list {
         display: none !important;
@@ -55,16 +61,16 @@ body {
 
 .green-text {
     font-family: "Mandali", sans-serif;
-    color: #1ce1ac;
+    color: var(--zalia-spalva);
 }
 
 .default-text {
     font-family: "Mandali", sans-serif;
-    color:#6c757d;
+    color: var(--pilka-spalva);
 }
 
 .dark-text-color {
-    color: #343a40;
+    color: var(--tamsi-spalva);;
 }
 
 .font-size-16 {

@@ -34,12 +34,12 @@
     background-color: #f8f9fa;
     padding: 2px 15px;
     border-radius: 5px;
-    color: #6c757d;
+    color: var(--pilka-spalva);;
     font-family: "Mandali", sans-serif;
 }
 
 .project-box .project-navbar-cont .project-navbar-list .project-navbar-item.active {
-    background-color: #1ce1ac;
+    background-color: var(--zalia-spalva);
     color: #fff;
 }
 
