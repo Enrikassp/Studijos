@@ -3,11 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Team project</title>
+    <title>Scroll Background Change</title>
+    <style>
+      body {
+        height: 200vh;
+        margin: 0;
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+      }
+
+      section {
+        scroll-snap-align: start;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2em;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        padding: 20px;
+        background-color: white;
+        transition: background-color 0.3s ease;
+      }
+
+      .header.active {
+        background-color: red;
+      }
+
+      /* Fake a scroll change */
+      section:nth-child(2) .header {
+        background-color: red;
+      }
+    </style>
   </head>
   <body>
-    <nav>
-      <div class="container"></div>
-    </nav>
+    <div class="header">Header Content</div>
+    <section style="background-color: lightgrey">Scroll down</section>
+    <section style="background-color: lightblue">
+      You've scrolled! The header is now red.
+    </section>
   </body>
 </html>
