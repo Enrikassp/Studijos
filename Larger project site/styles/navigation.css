@@ -26,6 +26,7 @@ nav .right-nav .nav-item-list .nav-item {
     text-decoration: none;
     color:var(--pilka-spalva);;
     font-family: "Mandali", sans-serif;
+    transition: color 0.2s ease-in-out;
 }
 
 nav .right-nav .nav-item-list .nav-item.active {
@@ -45,9 +46,6 @@ nav .right-nav .nav-item-list .nav-item.active::after {
 
 nav .right-nav .nav-item-list .nav-item:hover {
     color: var(--zalia-spalva) !important;
-    transition: all 0.3s;
-    font-size: 16px;
-    font-weight: 500;
 }
 
 nav .right-nav i {
