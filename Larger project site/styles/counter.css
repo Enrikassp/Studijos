@@ -1,0 +1,16 @@
+.counter {
+    padding: 80px 10px;
+}
+
+.counter .counter-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.counter .counter-list .counter-list-contents {
+    display: flex;
+    gap: 140px;
+    flex-wrap: wrap;
+    justify-content: center;
+}

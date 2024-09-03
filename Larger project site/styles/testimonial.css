@@ -1,0 +1,69 @@
+.testimonial {
+    padding: 80px 0px;
+    flex-wrap: wrap
+}
+
+.testimonial .testimonial-header {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.testimonial .testimonial-header .testimonial-header-cont {
+    max-width: 550px;
+}
+
+.testimonial .testimonial-header .testimonial-header-cont h6 {
+    font-weight: 500;
+    margin-bottom: 20px
+}
+
+.testimonial .testimonial-header .testimonial-header-cont h1 {
+    margin-bottom: 20px
+}
+
+.testimonial .testimonial-content-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.testimonial .testimonial-content {
+    position: relative;
+    max-width: 280px;
+    padding: 25px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.testimonial .testimonial-content .testimonial-author p {
+    margin: 0;
+}
+
+.quote-icon-box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.testimonial .testimonial-page-location {
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial .testimonial-page-location .page-list i {
+    margin-left: 6px;
+    font-size: 8px;
+    color: rgba(52, 58, 64, 0.212);
+}
+
+.testimonial .testimonial-page-location .page-list i.current-page {
+    color: rgb(52, 58, 64);
+}
