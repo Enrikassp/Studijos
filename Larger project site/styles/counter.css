@@ -1,16 +1,19 @@
-.counter {
-  padding: 80px 10px;
-}
+main {
+  #counter {
+    padding: 80px 10px;
+    .container {
+      .counter-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
 
-.counter .counter-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.counter .counter-list .counter-list-contents {
-  display: flex;
-  gap: 140px;
-  flex-wrap: wrap;
-  justify-content: center;
+        .counter-list-contents {
+          display: flex;
+          gap: 140px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    }
+  }
 }
