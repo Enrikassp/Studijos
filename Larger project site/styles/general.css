@@ -1,126 +1,133 @@
 :root {
-    --tamsi-spalva: #343a40; 
-    --pilka-spalva: #6c757d;
-    --zalia-spalva: #1ce1ac;
+  --tamsi-spalva: #343a40;
+  --pilka-spalva: #6c757d;
+  --zalia-spalva: #1ce1ac;
 }
 
 @media screen and (max-width: 800px) {
-    .right-nav .nav-item-list {
-        display: none !important;
-    }
-    nav .right-nav .mobile_item-list {
-        display: flex !important;
-    }
-    .footer-contents {
-        padding-top: 150px;
-    }
+  .right-nav .nav-item-list {
+    display: none !important;
+  }
+  nav .right-nav .mobile_item-list {
+    display: flex !important;
+  }
+  .footer-contents {
+    padding-top: 150px;
+  }
 }
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Cerebri Sans,sans-serif";
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cerebri Sans,sans-serif";
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  box-sizing: border-box;
 }
-
 
 .container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 30px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 30px;
 }
 
 @font-face {
-    font-family: "Cerebri Sans,sans-serif";
-    src: url("../assets/fonts/cerebrisans-medium.eot");
-    src: local("Cerebri-sans Medium"), url("../assets/fonts/cerebrisans-medium.woff") format("woff");
-    font-weight: 500;
+  font-family: "Cerebri Sans,sans-serif";
+  src: url("../assets/fonts/cerebrisans-medium.eot");
+  src: local("Cerebri-sans Medium"),
+    url("../assets/fonts/cerebrisans-medium.woff") format("woff");
+  font-weight: 500;
 }
 
 @font-face {
-    font-family: "Cerebri Sans,sans-serif";
-    src: url("../assets/fonts/cerebrisans-semibold.eot");
-    src: local("Cerebri-sans Semibold"), url("../assets/fonts/cerebrisans-semibold.woff") format("woff");
-    font-weight: 600;
+  font-family: "Cerebri Sans,sans-serif";
+  src: url("../assets/fonts/cerebrisans-semibold.eot");
+  src: local("Cerebri-sans Semibold"),
+    url("../assets/fonts/cerebrisans-semibold.woff") format("woff");
+  font-weight: 600;
 }
 
 @font-face {
-    font-family: "Cerebri Sans,sans-serif";
-    src: url("../assets/fonts/cerebrisans-bold.eot");
-    src: local("Cerebri-sans Bold"), url("../assets/fonts/cerebrisans-bold.woff") format("woff");
-    font-weight: 700;
+  font-family: "Cerebri Sans,sans-serif";
+  src: url("../assets/fonts/cerebrisans-bold.eot");
+  src: local("Cerebri-sans Bold"),
+    url("../assets/fonts/cerebrisans-bold.woff") format("woff");
+  font-weight: 700;
 }
 
 .green-text {
-    font-family: "Mandali", sans-serif;
-    color: var(--zalia-spalva);
+  font-family: "Mandali", sans-serif;
+  color: var(--zalia-spalva);
 }
 
 .default-text {
-    font-family: "Mandali", sans-serif;
-    color: var(--pilka-spalva);
+  font-family: "Mandali", sans-serif;
+  color: var(--pilka-spalva);
 }
 
 .dark-text-color {
-    color: var(--tamsi-spalva);;
+  color: var(--tamsi-spalva);
 }
 
 .font-size-16 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .font-size-18 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
-.font-size-22{
-    font-size: 22px;
+.font-size-22 {
+  font-size: 22px;
 }
 
-.font-size-30{
-    font-size: 30px;
+.font-size-30 {
+  font-size: 30px;
 }
 
 .font-size-48 {
-    font-size: 58px;
+  font-size: 58px;
 }
 
 .font-size-58 {
-    font-size: 58px;
+  font-size: 58px;
 }
 
 .font-weight-normal {
-    font-weight: 500;
+  font-weight: 500;
 }
 
-.bg-light { 
-    background-color: #f8f9fa;
+.bg-light {
+  background-color: #f8f9fa;
 }
 
 .bg-white {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .bg-yellow {
-    background-color: rgba(255, 194, 18, 0.25);
+  background-color: rgba(255, 194, 18, 0.25);
 }
 
 .circle-round {
-    border-radius: 100%;
+  border-radius: 100%;
 }
 
 .round-5 {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
