@@ -1,3 +1,15 @@
+@media screen and (max-width: 800px) {
+    .right-nav .nav-item-list {
+        display: none !important;
+    }
+    nav .right-nav .mobile_item-list {
+        display: flex !important;
+    }
+    .footer-contents {
+        padding-top: 150px;
+    }
+}
+
 * {
     margin: 0;
 }
@@ -69,6 +81,15 @@ nav .right-nav .nav-item-list .nav-item:hover {
     font-size: 16px;
     font-weight: 500;
 }
+
+nav .right-nav i {
+    font-size: 22px;
+    color:black;
+}
+
+nav .right-nav .mobile_item-list {
+    display: none;
+}
 /* // HERO SECTION // */
 
 .hero-box {
@@ -112,7 +133,7 @@ nav .right-nav .nav-item-list .nav-item:hover {
 
 .hero-box .hero-image img {
     /* max-width: 10; */
-    max-height: 480px;
+    max-height: 350px;
 }
 
 .hero-box .hero-buttons-container {
@@ -127,7 +148,8 @@ nav .right-nav .nav-item-list .nav-item:hover {
     outline: none;
     font-family: "Mandali", sans-serif;
     font-size: 16px;
-    padding: 0px 25px;
+    padding: 0px 15px;
+    min-width: 150px;
     display: flex;
     align-items: center;
     font-weight: 500;
@@ -418,9 +440,17 @@ nav .right-nav .nav-item-list .nav-item:hover {
     max-width: 550px;
 }
 
+.team-members .team-members-list .team-members-list {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+
 .team-members .team-members-list .team-members-list-cont {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .team-members .team-members-list .team-members-list-cont .team-member {
@@ -451,11 +481,11 @@ footer .footer-contents {
     flex-wrap: wrap;
     gap: 120px;
     justify-content: center;
+    z-index: 122;
 }
 
 footer .footer-contents .right-footer .information-list {
     display: flex;
-    gap: 0px;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -508,7 +538,6 @@ footer .newsletter-container .container {
     min-height: 100px;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     background-image: url('/assets/images/cta-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -518,7 +547,7 @@ footer .newsletter-container .container {
 }
 
 footer .newsletter-container .left-side {
-    width: 500px;
+    max-width: 500px;
 }
 
 footer .newsletter-container .left-side h1 {
@@ -539,7 +568,7 @@ footer .newsletter-container .right-side .input-container {
     background-color: rgba(255, 255, 255, 0.12);
     padding: 10px 10px;
     border-radius: 5px;
-    width: 380px;
+    max-width: 380px;
 }
 
 footer .newsletter-container .right-side .input-container i {
