@@ -1,0 +1,37 @@
+main {
+  #asked-questions {
+    padding-bottom: 70px;
+    .container {
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .question-list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 10px;
+
+        .question {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #2d2d2d;
+          height: 80px;
+          padding-left: 30px;
+          padding-right: 30px;
+
+          h1 {
+            margin: 0;
+            font-weight: 600;
+          }
+
+          i {
+            font-size: 30px;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

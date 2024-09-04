@@ -1,0 +1,30 @@
+main {
+  #reasons-tojoin {
+    padding-bottom: 70px;
+    .container {
+      .reasons-tojoin-list {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        .reason {
+          padding: 20px;
+          max-width: 340px;
+          min-height: 260px;
+          border-radius: 20px;
+          background: linear-gradient(#192145, #1f111e);
+
+          h1 {
+            margin-top: 10px;
+          }
+
+          p {
+            margin-top: 20px;
+            color: #9192a0;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+:root {
+  --red-color: #e50914;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: black;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1650px;
+  margin: 0 auto;
+}
+
+.header-container {
+  background-image: url("/assets/background.jpg");
+  min-width: 1878px;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-22 {
+  font-size: 22px;
+}
+
+.fs-26 {
+  font-size: 26px;
+}
+
+.fs-60 {
+  font-size: 60px;
+}
+
+.color-white {
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+  font-family: "Helvetica Neue", "Segoe UI", sans-serif;
+}
+
+* {
+  font-family: "Helvetica Neue", "Segoe UI", sans-serif;
+}

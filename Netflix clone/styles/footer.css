@@ -1,0 +1,60 @@
+footer {
+  padding-bottom: 120px;
+  .container {
+    a {
+      font-size: 16px;
+      color: #afafaf;
+      font-weight: 600;
+    }
+
+    .header-cont {
+      margin-bottom: 20px;
+
+      a {
+        font-size: 18px;
+      }
+    }
+
+    .help-center-list {
+      display: flex;
+      flex-direction: row;
+      gap: 200px;
+      margin-bottom: 80px;
+
+      .help-list-cont {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    .selection-container {
+      position: relative;
+      i {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #fff;
+        font-size: 20px;
+      }
+      select {
+        background-color: transparent;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        border-radius: 5px;
+        padding: 8px 40px;
+
+        option {
+          color: black;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      }
+
+      p {
+        margin-top: 50px;
+        color: #afafaf;
+      }
+    }
+  }
+}
