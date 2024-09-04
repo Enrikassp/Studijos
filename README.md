@@ -1,1 +1,1 @@
-FRONT END & BACK END studijos 2024
+Studijos 2024
