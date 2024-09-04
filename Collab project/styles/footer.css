@@ -1,0 +1,115 @@
+footer {
+  section.gap-section {
+    min-height: 150px;
+  }
+
+  section.main-footer {
+    position: relative;
+    background-color: rgba(226, 189, 242, 0.11);
+    padding: 0 120px;
+    height: 300px;
+    padding-bottom: 80px;
+
+    .absolute-position {
+      position: absolute;
+      top: -22%;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0%;
+
+      .container {
+        display: flex;
+        gap: 160px;
+
+        .left-side {
+          max-width: 600px;
+          padding-bottom: 80px;
+          .header {
+            font-family: "Comfortaa", sans-serif;
+            color: var(--light-color);
+            font-size: 40px;
+            margin-bottom: 20px;
+          }
+
+          p {
+            max-width: 450px;
+            font-size: 20px;
+          }
+
+          .social-list {
+            h1 {
+              margin-top: 20px;
+            }
+
+            .social-list-cont {
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              margin-top: 20px;
+
+              img {
+                width: 40px;
+              }
+            }
+          }
+        }
+
+        .right-side {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+
+          .top-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 120px;
+
+            .info {
+              h1 {
+                margin-bottom: 30px;
+              }
+              ul {
+                li {
+                  list-style: none;
+                  margin-bottom: 30px;
+
+                  a:hover {
+                    color: var(--light-color);
+                  }
+                }
+              }
+            }
+          }
+
+          .bottom-section {
+            h1 {
+              font-size: 20px;
+
+              a {
+                margin-left: 20px;
+                font-size: 18px;
+                font-weight: normal;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section.rights {
+    background-color: var(--medium-dark-color);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-size: 20px;
+      color: #fff;
+      font-weight: 400;
+    }
+  }
+}
