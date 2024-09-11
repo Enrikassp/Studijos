@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid testing</title>
+
+    <style>
+      .grid-container {
+        min-height: 150px;
+        background-color: #ebeb91;
+        border: 2px solid #292626;
+        padding: 4px;
+        font-size: 80px;
+
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 1em;
+        /* grid-template-rows: 150px 105px 50px; */
+        overflow: hidden;
+      }
+
+      .grid-box {
+        height: 100%;
+        width: 100%;
+        background-color: #d8a74c;
+        border: 1px solid #9e7529;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .flex {
+        background-color: aqua;
+      }
+
+      .special {
+        background-color: red;
+        font-family: "Courier New", Courier, monospace;
+        grid-column: 5/8;
+        grid-row: 2/4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-box flex">1</div>
+      <div class="grid-box my-grid">2</div>
+      <div class="grid-box">3</div>
+      <div class="grid-box">4</div>
+      <div class="grid-box">5</div>
+      <div class="grid-box">6</div>
+      <div class="grid-box">8</div>
+      <div class="grid-box">9</div>
+      <div class="grid-box">10</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box">11</div>
+      <div class="grid-box special">7</div>
+    </div>
+  </body>
+</html>

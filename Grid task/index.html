@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Task</title>
+    <style>
+      .box {
+        height: 100%;
+        width: 100%;
+        background-color: orange;
+      }
+
+      .grid-3-columns {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-container {
+        display: grid;
+        background-color: rgb(240, 240, 112);
+        min-height: 150px;
+        padding: 10px;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+
+      .middle-column {
+        grid-template-columns: 1fr 2fr 1fr;
+      }
+
+      .third-grid {
+        grid-template-columns: repeat(5, 1fr) 20%;
+        grid-template-rows: auto 165px;
+      }
+
+      .fourth-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .special {
+        background-color: red;
+        grid-column: 2/7;
+        grid-row: 2/4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>FIRST GRID</h1>
+
+    <div class="grid-container grid-3-columns">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <h1>SECOND GRID</h1>
+
+    <div class="grid-container grid-3-columns middle-column">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <h1>THIRD GRID</h1>
+
+    <div class="grid-container third-grid">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <h1>FOURTH GRID</h1>
+
+    <div class="grid-container fourth-grid">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box special"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>
