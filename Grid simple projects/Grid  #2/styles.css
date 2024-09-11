@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  color: #fff;
+}
+
+.flex1 {
+  height: 300px;
+  background-color: darkcyan;
+  grid-column: span 2;
+}
+
+.flex2 {
+  background-color: darkmagenta;
+  grid-row: span 2;
+}
+
+.flex3 {
+  height: 300px;
+  background-color: darkorange;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
