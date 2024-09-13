@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 0;
+      }
+      nav {
+        background-color: #039fe2;
+        color: #fff;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        max-height: 50px;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 500px) {
+        nav {
+          flex-direction: column;
+          max-height: 300px;
+        }
+
+        a.nav-link {
+          width: 100%;
+        }
+
+        .icon {
+          display: inline !important;
+        }
+
+        nav.closed > a.nav-link {
+          display: none;
+        }
+      }
+
+      a.nav-link {
+        text-decoration: none;
+        color: white;
+        padding: 1rem;
+        font-family: "Courier New", Courier, monospace;
+        text-align: center;
+      }
+      a.nav-link:hover {
+        background-color: #0a8dc6;
+      }
+      a.disabled {
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+      a.disabled:hover {
+        background-color: transparent;
+      }
+      .icon {
+        display: none;
+        font-size: 20px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <nav class="">
+      <a href="" class="nav-link">Home</a>
+      <a href="" class="nav-link">About me</a>
+      <a href="" class="nav-link">My Projects</a>
+      <a href="" class="disabled nav-link">Gallery</a>
+      <i class="bi bi-list icon" onclick=""></i>
+    </nav>
+  </body>
+</html>
