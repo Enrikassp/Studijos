@@ -1,3 +1,5 @@
+alert("Sveiki atvykę, šis puslapis vadinasi Mano puslapio pavadinimas");
+document.title = "Company Name, UAB solutions - Document";
 /// STACIAKAMPIO PLOTAS
 function staciakampioApskaiciavimas(a, b) {
   let plotas = a * b;
