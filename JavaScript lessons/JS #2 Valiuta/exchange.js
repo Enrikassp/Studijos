@@ -63,5 +63,5 @@ if (
     `<h1 style="font-size:24px; font-weight:normal;">Vertė (${exchangeTo}): <b>${exchangedAmount}</b></h1>`
   );
 } else {
-  alert("Klaida įvestyjeEUR");
+  alert("Klaida įvestyje");
 }
