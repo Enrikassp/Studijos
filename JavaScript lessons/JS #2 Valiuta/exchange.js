@@ -26,19 +26,19 @@ if (exchangeFrom === "EUR" && exchangeTo === "USD") {
   exchangedAmount = exchangedAmount.toFixed(2);
   console.log("CONVERTING EUR TO GBP");
 } else if (exchangeFrom === "USD" && exchangeTo === "EUR") {
-  exchangedAmount = exchangeAmount / USD_rate; // USD to EUR conversion
+  exchangedAmount = exchangeAmount / USD_rate;
   exchangedAmount = exchangedAmount.toFixed(2);
   console.log("CONVERTING USD TO EUR");
 } else if (exchangeFrom === "USD" && exchangeTo === "GBP") {
-  exchangedAmount = exchangeAmount * (GBP_rate / USD_rate); // USD to EUR, then EUR to GBP
+  exchangedAmount = exchangeAmount * (GBP_rate / USD_rate);
   exchangedAmount = exchangedAmount.toFixed(2);
   console.log("CONVERTING USD TO GBP");
 } else if (exchangeFrom === "GBP" && exchangeTo === "EUR") {
-  exchangedAmount = exchangeAmount / GBP_rate; // GBP to EUR conversion
+  exchangedAmount = exchangeAmount / GBP_rate;
   exchangedAmount = exchangedAmount.toFixed(2);
   console.log("CONVERTING GBP TO EUR");
 } else if (exchangeFrom === "GBP" && exchangeTo === "USD") {
-  exchangedAmount = exchangeAmount * (USD_rate / GBP_rate); // GBP to EUR, then EUR to USD
+  exchangedAmount = exchangeAmount * (USD_rate / GBP_rate);
   exchangedAmount = exchangedAmount.toFixed(2);
   console.log("CONVERTING GBP TO USD");
 } else {
