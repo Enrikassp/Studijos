@@ -20,27 +20,21 @@ let GBP_rate = 0.842824; // GBP to EUR
 if (exchangeFrom === "EUR" && exchangeTo === "USD") {
   exchangedAmount = exchangeAmount * USD_rate;
   exchangedAmount = exchangedAmount.toFixed(2);
-  console.log("CONVERTING EUR TO USD");
 } else if (exchangeFrom === "EUR" && exchangeTo === "GBP") {
   exchangedAmount = exchangeAmount * GBP_rate;
   exchangedAmount = exchangedAmount.toFixed(2);
-  console.log("CONVERTING EUR TO GBP");
 } else if (exchangeFrom === "USD" && exchangeTo === "EUR") {
   exchangedAmount = exchangeAmount / USD_rate;
   exchangedAmount = exchangedAmount.toFixed(2);
-  console.log("CONVERTING USD TO EUR");
 } else if (exchangeFrom === "USD" && exchangeTo === "GBP") {
   exchangedAmount = exchangeAmount * (GBP_rate / USD_rate);
   exchangedAmount = exchangedAmount.toFixed(2);
-  console.log("CONVERTING USD TO GBP");
 } else if (exchangeFrom === "GBP" && exchangeTo === "EUR") {
   exchangedAmount = exchangeAmount / GBP_rate;
   exchangedAmount = exchangedAmount.toFixed(2);
-  console.log("CONVERTING GBP TO EUR");
 } else if (exchangeFrom === "GBP" && exchangeTo === "USD") {
   exchangedAmount = exchangeAmount * (USD_rate / GBP_rate);
   exchangedAmount = exchangedAmount.toFixed(2);
-  console.log("CONVERTING GBP TO USD");
 } else {
   alert("Tokios valiutos neturime konvertavime!");
 }
