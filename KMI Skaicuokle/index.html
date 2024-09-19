@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>KMI Skaičiuoklė</h1>
+      <div class="input-container">
+        <label>
+          <p>Ūgis</p>
+          <input type="number" name="" id="height" min="1" />
+        </label>
+        <label>
+          <p>Svoris</p>
+          <input type="number" name="" id="weight" min="1" />
+        </label>
+
+        <button onclick="calculateBMI()">Skaičiuoti</button>
+      </div>
+
+      <div class="results">
+        <h6>
+          Jūsų KMI
+          <span class="resultBMIText">-.-</span>
+        </h6>
+
+        <p>
+          Rizika <span class="red result_risk_level">Nepakanka svorio</span>
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+body,
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.box1 {
+  background-image: url(/images/disco.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: disco 5s linear 5s infinite;
+}
+
+@keyframes disco {
+  0% {
+    background-color: blueviolet;
+  }
+  25% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: red;
+  }
+  75% {
+    background-color: springgreen;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+
+.box2 {
+  background-image: linear-gradient(
+    140deg,
+    hsl(0deg 99% 40%) 0%,
+    hsl(21deg 100% 44%) 12%,
+    hsl(32deg 100% 46%) 24%,
+    hsl(42deg 100% 47%) 35%,
+    hsl(53deg 100% 47%) 45%,
+    hsl(65deg 100% 50%) 55%,
+    hsl(71deg 100% 49%) 64%,
+    hsl(77deg 100% 48%) 73%,
+    hsl(84deg 100% 48%) 82%,
+    hsl(92deg 100% 47%) 90%,
+    hsl(109deg 87% 49%) 100%
+  );
+  background-size: 200%;
+  animation: color 5s linear infinite alternate;
+}
+
+@keyframes color {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.box3 {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  background-image: url(/images/mountain.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  img {
+    width: 300px;
+    animation: cold 1ms linear infinite alternate;
+  }
+}
+
+@keyframes cold {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(2deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.box4 {
+  display: flex;
+  background-image: url(/images/road.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: center;
+  align-items: end;
+  overflow: hidden;
+  width: 100%;
+  img {
+    width: 600px;
+    animation: drive 5s linear infinite;
+    padding-bottom: 20px;
+  }
+}
+
+@keyframes drive {
+  from {
+    transform: translateX(-1500px);
+  }
+
+  to {
+    transform: translateX(1500px);
+  }
+}
+
+.box5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 300px;
+    animation: heart 2s infinite linear alternate-reverse;
+  }
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.5);
+  }
+  0% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,108 @@
+body {
+  background-color: rgb(253, 251, 247);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 250px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.43);
+  padding: 30px;
+  border-radius: 10px;
+  background-color: white;
+
+  h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: #413e3e;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px dotted rgb(0, 204, 255);
+    padding-bottom: 30px;
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      font-family: "Montserrat", sans-serif;
+      width: 240px;
+
+      input {
+        border-radius: 50px;
+        outline: none;
+        border: 1px solid rgb(201, 201, 201);
+        width: 100px;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+
+    button {
+      background-color: rgb(120, 183, 241);
+      outline: none;
+      border: none;
+      border-radius: 10px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 18px;
+      height: 40px;
+      width: 200px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.2s all ease-in-out;
+    }
+
+    button:hover {
+      background-color: rgb(97, 157, 212);
+    }
+  }
+
+  .results {
+    display: none;
+    transition: 1s all ease-in-out;
+    height: 50px;
+
+    h6 {
+      display: flex;
+      justify-content: space-between;
+      font-family: "Montserrat", sans-serif;
+      font-size: 18px;
+      padding: 0;
+      margin: 0;
+      color: #413e3e;
+      margin-bottom: 10px;
+
+      span {
+        color: gray;
+      }
+    }
+
+    p {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      font-family: "Montserrat", sans-serif;
+      color: #413e3e;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}
