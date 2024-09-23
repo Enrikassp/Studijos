@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header">
+      <h3 id="greeting">Sveiki, {vardas}</h3>
+      <p id="balance">Jūsų balansas: x €</p>
+    </div>
+
+    <div class="main-input-cont">
+      <div class="input-cont">
+        <input
+          type="number"
+          placeholder="Įveskite išlaidas"
+          id="islaidu-input"
+        />
+        <button onclick="isleistiPinigus()">Išleisti pinigus</button>
+      </div>
+      <div class="input-cont">
+        <input
+          type="number"
+          placeholder="Įveskite kiek pinigų įnašate"
+          id="inaso-input"
+        />
+        <button onclick="pridetiPinigus()">Įnešti pinigus</button>
+      </div>
+      <div class="getSalaryCont">
+        <button onclick="gautiAlga()">Gauti alga</button>
+      </div>
+    </div>
+
+    <div class="metalSellCont">
+      <h1>Metalo pardavimas</h1>
+
+      <div class="input-cont">
+        <input
+          type="number"
+          placeholder="Įveskite kieki metalo pardavimo (KG)"
+          id="metalo-input"
+        />
+        <button onclick="parduotiMetala()">Parduoti</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

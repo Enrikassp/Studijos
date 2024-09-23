@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        /* background-color: coral; */
+        background: cmyk(0%, 69%, 41%, 25%);
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 80px;
+        gap: 1em;
+        margin-bottom: 80px;
+      }
+
+      @media (max-width: 1070px) {
+        nav {
+          gap: 0.25rem;
+        }
+      }
+
+      @media (max-width: 986px) {
+        nav {
+          padding: 0 20px;
+        }
+      }
+
+      @media (max-width: 886px) {
+        nav {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .box {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="alert('test')" disabled>TESTAs</button>
+    <nav>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </nav>
+  </body>
+</html>
