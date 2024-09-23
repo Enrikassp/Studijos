@@ -69,5 +69,5 @@ function initialize() {
 
 function updateBalance() {
   const balanceElement = document.querySelector("#balance");
-  balanceElement.innerText = `Jūsų balansas: ${balansas} €`;
+  balanceElement.innerText = `Jūsų balansas: ${balansas.toFixed(2)} €`;
 }
