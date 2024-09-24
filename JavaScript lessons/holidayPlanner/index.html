@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holidays planner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Route planner</h1>
+    </header>
+
+    <section id="mainBody">
+      <nav>
+        <ul>
+          <li>Route planner</li>
+        </ul>
+      </nav>
+
+      <!-- <div class="creationForm">
+        <label>
+          <span>Įveskite kelionė iš</span>
+
+          <input type="text" id="destiFrom" placeholder="PVZ: (KUN)" />
+        </label>
+        <label>
+          <span>Įveskite kelionė į</span>
+
+          <input type="text" id="destiTo" placeholder="PVZ: (LTN)" />
+        </label>
+        <label>
+          <span>Pasirinkite skrydžio pradžios laiką</span>
+
+          <input type="datetime-local" id="destiStart" />
+        </label>
+        <label>
+          <span>Pasirinkite skrydžio pabaigos laiką</span>
+
+          <input type="datetime-local" id="destiEnd" />
+        </label>
+        <label>
+          <span>Įveskite kelionės klasę</span>
+          <input type="text" id="destiClass" placeholder="(A, B, C)" />
+        </label>
+        <label>
+          <span>Įveskite kelionės persėdimų skaičių</span>
+          <input
+            type="number"
+            id="destiConnecting"
+            placeholder="PVZ: 1"
+            min="0"
+          />
+        </label>
+        <button onclick="createRoute()">Submit</button>
+      </div> -->
+
+      <div class="tableContainer">
+        <div class="tableActions">
+          <div class="left-side">
+            <button>Export</button>
+            <button>Import</button>
+            <button class="deleteBtn">Delete</button>
+          </div>
+
+          <div class="right-side">
+            <button>Sort by</button>
+            <label>
+              <input type="search" name="" id="" placeholder="Search here" />
+            </label>
+            <button class="addNewBtn">Add new</button>
+          </div>
+        </div>
+
+        <div class="tableBodyContainer">
+          <table>
+            <thead>
+              <tr>
+                <th><input type="checkbox" name="" id="" /></th>
+                <th>Kelionė</th>
+                <th>Skrydžio pradžia</th>
+                <th>Skrydžio pabaiga</th>
+                <th>Kelionės trukmė</th>
+                <th>Klasė</th>
+                <th>Persėdimų skaičius</th>
+              </tr>
+            </thead>
+            <tbody id="tableRows">
+              <tr>
+                <td><input type="checkbox" name="" id="" /></td>
+                <td>(KUN->LTN)</td>
+                <td>(2024-09-24 12:00)</td>
+                <td>(2024-09-24 12:00)</td>
+                <td>(6val. 20 min.)</td>
+                <td>(A)</td>
+                <td>(2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  header {
+    width: 100%;
+    padding: 2px 20px;
+  }
+
+  section#mainBody {
+    display: flex;
+    flex-direction: row;
+    background-color: #f5f6f1;
+
+    nav {
+      width: 320px;
+      height: 91vh;
+      background-color: white;
+    }
+
+    .tableContainer {
+      height: 840px;
+      width: 80vw;
+      margin-left: 40px;
+
+      .tableActions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+
+        button {
+          outline: none;
+          border: none;
+          background-color: white;
+          padding: 14px 27px;
+          border-radius: 5px;
+        }
+
+        .left-side {
+          display: flex;
+          gap: 20px;
+
+          .deleteBtn {
+            background-color: #f06150;
+            color: #fff;
+          }
+        }
+
+        .right-side {
+          display: flex;
+          gap: 20px;
+
+          .addNewBtn {
+            background-color: #2b3d63;
+            color: #fff;
+          }
+
+          input {
+            outline: none;
+            border: none;
+            background-color: white;
+            padding: 14px 27px;
+            border-radius: 5px;
+          }
+        }
+      }
+
+      .tableBodyContainer {
+        background-color: white;
+        border-radius: 20px;
+        overflow-y: scroll;
+
+        table {
+          width: 100%;
+          height: 720px;
+          text-align: center;
+          border-spacing: 0px;
+
+          button {
+            outline: none;
+            border: none;
+            background-color: transparent;
+          }
+
+          th {
+            padding: 20px;
+          }
+
+          td {
+            padding: 10px;
+            margin: 0;
+          }
+
+          .tableRowData:hover {
+            background-color: rgb(170, 233, 170);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .creationForm {
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 300px;
+      padding: 20px;
+
+      label {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
