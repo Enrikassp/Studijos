@@ -141,6 +141,50 @@ function deleteFlight() {
   updateTable();
 }
 
+function searchFlights() {
+  const searchTerm = document.querySelector("#searchInput").value.toLowerCase();
+  const storedRoutes = localStorage.getItem("route");
+  const tableRows = document.querySelector("#tableRows");
+  tableRows.innerHTML = "";
+
+  if (storedRoutes) {
+    const getRoutes = JSON.parse(storedRoutes);
+
+    if (Array.isArray(getRoutes)) {
+      let templateHTML = "";
+      for (let i = 0; i < getRoutes.length; i++) {
+        // Check if the search term matches any part of the route data
+        const routeName = getRoutes[i][0].routeName.toLowerCase();
+        const routeStart = getRoutes[i][0].routeStart.toLowerCase();
+        const routeEnd = getRoutes[i][0].routeEnd.toLowerCase();
+        const routeClass = getRoutes[i][0].routeClass.toLowerCase();
+
+        if (
+          routeName.includes(searchTerm) ||
+          routeStart.includes(searchTerm) ||
+          routeEnd.includes(searchTerm) ||
+          routeClass.includes(searchTerm)
+        ) {
+          templateHTML += `
+          <tr class="tableRowData">
+            <td id='tableCheckBox'><input type="checkbox" /></td>
+            <td>(${getRoutes[i][0].routeName})</td>
+            <td>(${getRoutes[i][0].routeStart})</td>
+            <td>(${getRoutes[i][0].routeEnd})</td>
+            <td>(${getRoutes[i][0].routeDuration})</td>
+            <td>(${getRoutes[i][0].routeClass})</td>
+            <td>(${getRoutes[i][0].routeConnecting})</td>
+            <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+          </tr>`;
+        }
+      }
+
+      // Update the table with filtered results
+      tableRows.innerHTML = templateHTML;
+    }
+  }
+}
+
 function calculateDestDuration(start, end) {
   const startDate = new Date(start);
   const endDate = new Date(end);

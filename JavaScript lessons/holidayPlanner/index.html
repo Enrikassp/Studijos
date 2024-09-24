@@ -94,7 +94,13 @@
             </button>
             <label>
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" name="" id="" placeholder="Search here" />
+              <input
+                type="search"
+                name=""
+                id="searchInput"
+                placeholder="Search here"
+                oninput="searchFlights()"
+              />
             </label>
             <button class="addNewBtn" onclick="addNewRoute();">
               <i class="fa-solid fa-plus"></i>
