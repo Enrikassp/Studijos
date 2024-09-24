@@ -90,8 +90,9 @@ function saveToLocalStorageData(newRouteData) {
 function updateTable() {
   const storedRoutes = localStorage.getItem("route");
   const tableRows = document.querySelector("#tableRows");
+
   tableRows.innerHTML = "";
-  if (storedRoutes) {
+  if (storedRoutes.length > 2) {
     const getRoutes = JSON.parse(storedRoutes);
 
     if (Array.isArray(getRoutes)) {
@@ -112,6 +113,11 @@ function updateTable() {
         tableRows.innerHTML = templateHTML;
       }
     }
+  } else {
+    let templateHTML = `<h1 class="emptyTable">TUŠČIAS</h1>
+    `;
+
+    tableRows.innerHTML = templateHTML;
   }
 }
 
