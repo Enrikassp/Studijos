@@ -56,7 +56,8 @@ function createRoute() {
   const calculatedDuration = calculateDestDuration(destiStart, destiEnd);
   const routeData = [
     {
-      routeName: `${destiFrom} -> ${destiTo}`,
+      routeFrom: destiFrom,
+      routeTo: destiTo,
       routeStart: destiStart.replace("T", " "),
       routeEnd: destiEnd.replace("T", " "),
       routeDuration: calculatedDuration,
@@ -101,13 +102,13 @@ function updateTable() {
         templateHTML += `
         <tr class="tableRowData">
           <td id='tableCheckBox'><input type="checkbox" /></td>
-          <td>(${getRoutes[i][0].routeName})</td>
+          <td>(${getRoutes[i][0].routeFrom} -> ${getRoutes[i][0].routeTo})</td>
           <td>(${getRoutes[i][0].routeStart})</td>
           <td>(${getRoutes[i][0].routeEnd})</td>
           <td>(${getRoutes[i][0].routeDuration})</td>
           <td>(${getRoutes[i][0].routeClass})</td>
           <td>(${getRoutes[i][0].routeConnecting})</td>
-          <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+          <td><button onclick="editFlight(${i})"><i class="fa-solid fa-pen-to-square"></i></button></td>
         </tr>`;
 
         tableRows.innerHTML = templateHTML;
@@ -118,6 +119,21 @@ function updateTable() {
     `;
 
     tableRows.innerHTML = templateHTML;
+  }
+}
+
+function editFlight(index) {
+  const storedRoutes = localStorage.getItem("route");
+  if (storedRoutes) {
+    const getRoutes = JSON.parse(storedRoutes);
+    if (Array.isArray(getRoutes) && getRoutes[index]) {
+      const flightData = getRoutes[index][0];
+      alert("Koreguojame: " + JSON.stringify(flightData, null, 2));
+      const creationForm = document.querySelector(".creationFormBody");
+      creationForm.style.display = "flex";
+    } else {
+      alert("Flight not found.");
+    }
   }
 }
 
@@ -153,14 +169,15 @@ function searchFlights() {
     if (Array.isArray(getRoutes)) {
       let templateHTML = "";
       for (let i = 0; i < getRoutes.length; i++) {
-        // Check if the search term matches any part of the route data
-        const routeName = getRoutes[i][0].routeName.toLowerCase();
+        const routeFrom = getRoutes[i][0].routeFrom.toLowerCase();
+        const routeTo = getRoutes[i][0].routeTo.toLowerCase();
         const routeStart = getRoutes[i][0].routeStart.toLowerCase();
         const routeEnd = getRoutes[i][0].routeEnd.toLowerCase();
         const routeClass = getRoutes[i][0].routeClass.toLowerCase();
 
         if (
-          routeName.includes(searchTerm) ||
+          routeFrom.includes(searchTerm) ||
+          routeTo.includes(searchTerm) ||
           routeStart.includes(searchTerm) ||
           routeEnd.includes(searchTerm) ||
           routeClass.includes(searchTerm)
@@ -168,18 +185,17 @@ function searchFlights() {
           templateHTML += `
           <tr class="tableRowData">
             <td id='tableCheckBox'><input type="checkbox" /></td>
-            <td>(${getRoutes[i][0].routeName})</td>
+            <td>(${getRoutes[i][0].routeFrom} -> ${getRoutes[i][0].routeTo})</td>
             <td>(${getRoutes[i][0].routeStart})</td>
             <td>(${getRoutes[i][0].routeEnd})</td>
             <td>(${getRoutes[i][0].routeDuration})</td>
             <td>(${getRoutes[i][0].routeClass})</td>
             <td>(${getRoutes[i][0].routeConnecting})</td>
-            <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+            <td><button onclick="editFlight(${i})"><i class="fa-solid fa-pen-to-square"></i></button></td>
           </tr>`;
         }
       }
 
-      // Update the table with filtered results
       tableRows.innerHTML = templateHTML;
     }
   }
