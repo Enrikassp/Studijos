@@ -178,7 +178,8 @@ function editRoute(index) {
   const calculatedDuration = calculateDestDuration(destiStart, destiEnd);
 
   const updatedRouteData = {
-    routeName: `${destiFrom} -> ${destiTo}`,
+    routeFrom: destiFrom,
+    routeTo: destiTo,
     routeStart: destiStart.replace("T", " "),
     routeEnd: destiEnd.replace("T", " "),
     routeDuration: calculatedDuration,
@@ -198,6 +199,8 @@ function editRoute(index) {
   } else {
     return alert("Flight not found for editing.");
   }
+
+  console.log(updatedRouteData);
 
   localStorage.setItem("route", JSON.stringify(routeArray));
   const creationForm = document.querySelector(".creationFormBody");
