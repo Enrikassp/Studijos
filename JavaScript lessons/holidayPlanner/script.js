@@ -8,7 +8,6 @@ function checkInputs(
   destiClass,
   destiConnecting
 ) {
-  console.log(destiConnecting <= 0);
   if (
     !isNaN(destiFrom) ||
     destiFrom.length <= 0 ||
@@ -25,6 +24,16 @@ function checkInputs(
   } else {
     return true;
   }
+}
+
+function addNewRoute() {
+  const creationForm = document.querySelector(".creationFormBody");
+  creationForm.style.display = "flex";
+}
+
+function exitCreationForm() {
+  const creationForm = document.querySelector(".creationFormBody");
+  creationForm.style.display = "none";
 }
 
 function createRoute() {
@@ -81,7 +90,6 @@ function saveToLocalStorageData(newRouteData) {
 function updateTable() {
   const storedRoutes = localStorage.getItem("route");
   const tableRows = document.querySelector("#tableRows");
-  console.log("UPDATING TABLE.....");
   tableRows.innerHTML = "";
   if (storedRoutes) {
     const getRoutes = JSON.parse(storedRoutes);
@@ -91,22 +99,40 @@ function updateTable() {
       for (let i = 0; i < getRoutes.length; i++) {
         templateHTML += `
         <tr class="tableRowData">
-          <td><input type="checkbox" name="" id="" /></td>
+          <td id='tableCheckBox'><input type="checkbox" /></td>
           <td>(${getRoutes[i][0].routeName})</td>
           <td>(${getRoutes[i][0].routeStart})</td>
           <td>(${getRoutes[i][0].routeEnd})</td>
           <td>(${getRoutes[i][0].routeDuration})</td>
           <td>(${getRoutes[i][0].routeClass})</td>
           <td>(${getRoutes[i][0].routeConnecting})</td>
-          <td><button>EDIT</button></td>
+          <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
         </tr>`;
-        console.log(getRoutes[i][0].routeName);
-        // append to table
 
         tableRows.innerHTML = templateHTML;
       }
     }
   }
+}
+
+function deleteFlight() {
+  const storedRoutes = localStorage.getItem("route");
+  const tableRows = document.querySelector("#tableRows");
+  const checkboxes = tableRows.getElementsByTagName("input");
+
+  let routeArray = storedRoutes ? JSON.parse(storedRoutes) : [];
+
+  const remainingRoutes = [];
+
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      continue;
+    }
+    remainingRoutes.push(routeArray[i]);
+  }
+
+  localStorage.setItem("route", JSON.stringify(remainingRoutes));
+  updateTable();
 }
 
 function calculateDestDuration(start, end) {
@@ -121,4 +147,14 @@ function calculateDestDuration(start, end) {
   const formattedMinutes = String(minutes).padStart(2, "0");
 
   return `${formattedHours} hours ${formattedMinutes} mins`;
+}
+
+function selectAll(rowClass, sourceCheckbox) {
+  var rows = document.getElementsByClassName(rowClass);
+  for (var i = 0; i < rows.length; i++) {
+    var checkbox = rows[i].getElementsByTagName("input")[0];
+    if (checkbox) {
+      checkbox.checked = sourceCheckbox.checked;
+    }
+  }
 }

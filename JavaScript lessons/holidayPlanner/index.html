@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Holidays planner</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/b14591f08c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header>
-      <h1>Route planner</h1>
-    </header>
+    <div class="creationFormBody">
+      <div class="creationForm">
+        <h1>Skrydžio planavimas</h1>
+        <button onclick="exitCreationForm()" class="exitPage">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
 
-    <section id="mainBody">
-      <nav>
-        <ul>
-          <li>Route planner</li>
-        </ul>
-      </nav>
-
-      <!-- <div class="creationForm">
         <label>
           <span>Įveskite kelionė iš</span>
 
@@ -52,23 +57,49 @@
             min="0"
           />
         </label>
-        <button onclick="createRoute()">Submit</button>
-      </div> -->
+        <button class="createRouteBtn" onclick="createRoute()">Submit</button>
+      </div>
+    </div>
+    <header>
+      <h1>Route planner</h1>
+    </header>
+
+    <section id="mainBody">
+      <nav>
+        <ul>
+          <li class="active"><i class="fa-solid fa-plane"></i>Route planner</li>
+        </ul>
+      </nav>
 
       <div class="tableContainer">
         <div class="tableActions">
           <div class="left-side">
-            <button>Export</button>
-            <button>Import</button>
-            <button class="deleteBtn">Delete</button>
+            <button class="exportBtn">
+              <i class="fa-solid fa-download"></i>
+              Export
+            </button>
+            <button class="importBtn">
+              <i class="fa-solid fa-arrow-up-from-bracket"></i>Import
+            </button>
+            <button class="deleteBtn" onclick="deleteFlight();">
+              <i class="fa-solid fa-trash-can"></i>
+              Delete
+            </button>
           </div>
 
           <div class="right-side">
-            <button>Sort by</button>
+            <button class="sortBtn">
+              <i class="fa-solid fa-arrow-up-wide-short"></i>
+              Sort by
+            </button>
             <label>
+              <i class="fa-solid fa-magnifying-glass"></i>
               <input type="search" name="" id="" placeholder="Search here" />
             </label>
-            <button class="addNewBtn">Add new</button>
+            <button class="addNewBtn" onclick="addNewRoute();">
+              <i class="fa-solid fa-plus"></i>
+              Add new
+            </button>
           </div>
         </div>
 
@@ -76,7 +107,13 @@
           <table>
             <thead>
               <tr>
-                <th><input type="checkbox" name="" id="" /></th>
+                <th>
+                  <input
+                    onclick="selectAll('tableRowData', this)"
+                    type="checkbox"
+                    name="selectAll"
+                  />
+                </th>
                 <th>Kelionė</th>
                 <th>Skrydžio pradžia</th>
                 <th>Skrydžio pabaiga</th>
@@ -86,7 +123,7 @@
               </tr>
             </thead>
             <tbody id="tableRows">
-              <tr>
+              <!-- <tr>
                 <td><input type="checkbox" name="" id="" /></td>
                 <td>(KUN->LTN)</td>
                 <td>(2024-09-24 12:00)</td>
@@ -94,7 +131,7 @@
                 <td>(6val. 20 min.)</td>
                 <td>(A)</td>
                 <td>(2)</td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
