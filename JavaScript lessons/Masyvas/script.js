@@ -106,9 +106,7 @@ function generateHtmlTable(people, colors) {
   return table;
 }
 
-const people = ["Jonas", "Petras", "Ona", "Dalia"];
-
 document.querySelector(".uzduotis").innerHTML = generateHtmlTable(
-  people,
+  employees,
   colors
 );
