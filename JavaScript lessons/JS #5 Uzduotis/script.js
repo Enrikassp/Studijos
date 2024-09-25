@@ -263,40 +263,31 @@ drawDiamond(20);
 
 function viniesKalimas(type) {
   let smugiai = 0;
-
+  let smugioKalimas = 0;
   if (type === "silpnas") {
-    const smugioKalimas = random(5, 20);
-
-    for (let vinis = 0; vinis < 5; vinis++) {
-      let viniesIlgis = 850;
-
-      for (let ilgis = 0; ilgis <= viniesIlgis; ilgis++) {
-        if (viniesIlgis >= 0) {
-          viniesIlgis -= smugioKalimas;
-          smugiai++;
-        }
-      }
-    }
+    smugioKalimas = random(5, 20);
   } else {
-    const smugioKalimas = random(20, 30);
-    const smugioIkalimoSansas = random(0, 1) < 0.5;
+    smugioKalimas = random(20, 30);
+  }
 
-    for (let vinis = 0; vinis < 5; vinis++) {
-      let viniesIlgis = 850;
+  for (let vinis = 0; vinis < 5; vinis++) {
+    let viniesIlgis = 850;
 
-      for (let i = 0; viniesIlgis > 0; i++) {
-        const smugioIkalimoSansas = random(0, 1) < 0.5;
+    for (let i = 0; viniesIlgis > 0; i++) {
+      let smugioIkalimoSansas = 0;
 
-        if (smugioIkalimoSansas) {
-          viniesIlgis -= smugioKalimas;
-          smugiai++;
-        } else {
-          console.log("Nepataikei!");
-        }
+      if (type !== "silpnas") {
+        smugioIkalimoSansas = random(0, 1) < 0.5;
+      }
+
+      if (smugioIkalimoSansas || type === "silpnas") {
+        viniesIlgis -= smugioKalimas;
+        smugiai++;
+      } else {
+        console.log("Nepataikei!");
       }
     }
   }
-
   return smugiai;
 }
 
