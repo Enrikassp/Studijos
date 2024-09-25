@@ -281,10 +281,8 @@ function viniesKalimas(type) {
     const smugioKalimas = random(20, 30);
     const smugioIkalimoSansas = random(0, 1) < 0.5;
 
-    console.log(smugioIkalimoSansas);
-
     for (let vinis = 0; vinis < 5; vinis++) {
-      let viniesIlgis = 850; // Length of the nail
+      let viniesIlgis = 850;
 
       for (let i = 0; viniesIlgis > 0; i++) {
         const smugioIkalimoSansas = random(0, 1) < 0.5;
