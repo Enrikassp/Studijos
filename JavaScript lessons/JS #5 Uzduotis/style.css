@@ -1,0 +1,176 @@
+body {
+  background-color: #f4f4f4;
+  user-select: none;
+
+  .miniGame-Container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .miniGame {
+      min-height: 400px;
+      width: 300px;
+      background-color: #fff;
+      box-shadow: 0px 0px 12px 0px rgba(104, 104, 104, 0.5);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+
+      h1 {
+        text-align: center;
+        font-size: 22px;
+        color: #726e6e;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .coinContainer {
+        margin-top: 30px;
+        perspective: 1000px;
+
+        .coin {
+          width: 150px;
+          height: 150px;
+          position: relative;
+          transform-style: preserve-3d;
+        }
+
+        .coin.animate {
+          animation: flipCoin 0.1s linear infinite alternate;
+        }
+
+        .coin img {
+          position: absolute;
+          backface-visibility: hidden;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      button {
+        background-color: rgb(250, 170, 65);
+        padding: 14px 30px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        transition: all 0.3s ease-in-out;
+        color: #4e4949;
+        font-weight: bold;
+        margin-top: 50px;
+        font-size: 14px;
+      }
+
+      button:hover {
+        background-color: rgb(250, 207, 150);
+      }
+
+      .winnerStatus {
+        font-family: "Montserrat", sans-serif;
+        display: none;
+        mark {
+          background-color: transparent;
+          font-weight: bold;
+        }
+
+        #status-text {
+          color: rgb(202, 71, 48);
+        }
+
+        #coin-status {
+          color: rgb(27, 67, 197);
+        }
+      }
+
+      .selection-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+
+        label {
+          font-family: "Montserrat", sans-serif;
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+
+        select {
+          background-color: rgb(250, 170, 65);
+          outline: none;
+          border: 1px solid rgb(250, 170, 65) !important;
+          padding: 10px;
+          border-radius: 5px;
+          width: 300px;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+
+        select > option {
+          font-family: "Montserrat", sans-serif;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .squareContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+    .square {
+      display: grid;
+      grid-template-columns: repeat(10, 20px);
+      gap: 2px;
+    }
+
+    .square span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      font-size: 48px;
+      line-height: 20px;
+    }
+
+    .cross {
+      color: red;
+    }
+  }
+
+  .rectangleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+
+    .rectangle span {
+      font-size: 48px;
+    }
+  }
+
+  .diamondContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+    align-items: center;
+
+    .diamond span {
+      font-size: 20px;
+    }
+  }
+}
+
+@keyframes flipCoin {
+  0% {
+    transform: rotateX(0deg);
+    content: url("/images/1-Euro.png");
+  }
+
+  100% {
+    transform: rotateX(180deg);
+    content: url("/images/1-Euro-back.png");
+  }
+}

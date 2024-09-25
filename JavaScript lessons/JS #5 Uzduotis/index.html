@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="miniGame-Container">
+      <div class="miniGame">
+        <h1>Monetos metimas</h1>
+
+        <div class="coinContainer">
+          <img class="coin" src="/images/1-Euro.png" width="150" />
+        </div>
+
+        <div class="winnerStatus">
+          <p>
+            Jūs <mark id="status-text">laimėjote</mark>, nes iškrito
+            <mark id="coin-status">skaičius</mark>
+          </p>
+        </div>
+
+        <div class="selection-container">
+          <label for="coinSelection">Pasirinkite moneta:</label>
+
+          <select name="coinSelection" id="coinSelection">
+            <option value="" selected disabled hidden>
+              Pasirinkite monetą
+            </option>
+            <option value="skaicius">Skaičius</option>
+            <option value="herbas">Herbas</option>
+          </select>
+        </div>
+
+        <button onclick="flipCoin()">Mesti monetą</button>
+      </div>
+    </div>
+
+    <div class="squareContainer">
+      <div class="square"></div>
+    </div>
+
+    <div class="rectangleContainer">
+      <div class="rectangle"></div>
+    </div>
+    <div class="diamondContainer">
+      <div class="diamond"></div>
+    </div>
+    <script src="minigame.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
