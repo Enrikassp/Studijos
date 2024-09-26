@@ -157,8 +157,10 @@ body {
     margin-bottom: 200px;
     align-items: center;
 
-    .diamond span {
+    .diamond {
       font-size: 20px;
+      line-height: 20px;
+      display: inline-block;
     }
   }
 }
