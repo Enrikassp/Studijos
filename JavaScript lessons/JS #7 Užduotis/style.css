@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 80px;
+  overflow: hidden;
+
+  .inputContainers {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    input {
+      outline: none;
+      border: none;
+      background-color: #c0c0c0;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    button {
+      outline: none;
+      border: none;
+      background-color: #eca84e;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #ce8423;
+    }
+  }
+
+  .kvadratoKontaineris {
+    .kvadratas {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
