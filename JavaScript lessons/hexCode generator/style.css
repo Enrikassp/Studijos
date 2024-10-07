@@ -1,0 +1,54 @@
+body,
+body * {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.randomHexContainer {
+  width: 40rem;
+  border: 1px solid black;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: steelblue;
+  text-align: center;
+  color: #fff;
+}
+
+.randomHexContainer > * {
+  margin-bottom: 2rem;
+}
+
+hr {
+  margin-top: 2rem;
+}
+
+.hexCode {
+  border: 1px solid white;
+  font-size: 36px;
+  padding: 5px 10px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  padding: 12px 6px;
+  font-size: 16px;
+  border-radius: 5px;
+
+  i {
+    padding: 0 3px;
+  }
+}
