@@ -1,0 +1,21 @@
+main {
+  #productList {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 83%;
+
+    table {
+      width: 100%;
+      text-align: center;
+      tbody {
+        padding: 10px;
+
+        tr {
+          height: 40px;
+        }
+      }
+    }
+  }
+}

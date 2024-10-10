@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #e9e9e9;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  max-width: 1684px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+li {
+  font-family: "Roboto", serif;
+}
+
+table {
+  font-family: "Roboto", serif;
+}
+
+button {
+  font-family: "Roboto", serif;
+}
+
+input {
+  font-family: "Roboto", serif;
+}
+
+select {
+  font-family: "Roboto", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", serif;
+}
+
+span {
+  font-family: "Roboto", serif;
+}
+
+p {
+  font-family: "Roboto", serif;
+}

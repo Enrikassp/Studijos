@@ -1,0 +1,43 @@
+#navbar {
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  border-right: 1px solid #dfdbdb;
+
+  ul {
+    padding: 0;
+    color: #747474;
+
+    li {
+      list-style: none;
+      cursor: pointer;
+      font-weight: normal;
+      padding: 20px;
+
+      i {
+        font-size: 18px;
+        margin-right: 10px;
+      }
+    }
+
+    li:hover {
+      background-color: #5e94f731;
+      color: #5e94f7;
+      font-weight: bold;
+
+      i {
+        color: #5e94f7;
+      }
+    }
+
+    li.active {
+      background-color: #5e94f731;
+      color: #5e94f7;
+      font-weight: bold;
+
+      i {
+        color: #5e94f7;
+      }
+    }
+  }
+}
