@@ -55,3 +55,13 @@ const koksYraSkaicius = (skaicus) => {
 };
 
 koksYraSkaicius(0)
+
+// Parašykite programą, kuri nustato, ar vartotojo įvestas metai yra keliamieji.Kurį operatorių naudoti?
+ 
+const arKeliamieji = (metai) => {
+    return ((metai % 4 === 0 && metai % 100 !== 0) || (metai % 400 === 0))
+    ? `${metai} Keliamieji`
+    : `${metai} Nekeliamieji`;
+}
+
+console.log(arKeliamieji(2024))
