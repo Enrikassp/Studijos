@@ -376,13 +376,13 @@ a === b
   : console.log("Skaičiai nėra lygus");
 
 // Sukurkite funkciją, kuri patikrina, ar vartotojo įvestas simbolis yra balsė, priebalsė ar nėra raidė.Koks operatorius geriausiai tinka?
+const balses = ["a", "e", "i", "o", "u", "ą", "ę", "ė", "į", "ų", "ū"];
+
 function patikrinkSimboliSuSwitch(simbolis) {
   simbolis = simbolis.toLowerCase();
 
   switch (true) {
-    case ["a", "e", "i", "o", "u", "ą", "ę", "ė", "į", "ų", "ū"].includes(
-      simbolis
-    ):
+    case balses.includes(simbolis):
       console.log("Balsė");
       break;
     case simbolis >= "a" && simbolis <= "z":
@@ -394,15 +394,11 @@ function patikrinkSimboliSuSwitch(simbolis) {
 }
 
 patikrinkSimboliSuSwitch("ą");
-patikrinkSimboliSuSwitch("b");
-patikrinkSimboliSuSwitch("1");
 
 function patikrinkSimboliSuIf(simbolis) {
   simbolis = simbolis.toLowerCase();
 
-  if (
-    ["a", "e", "i", "o", "u", "ą", "ę", "ė", "į", "ų", "ū"].includes(simbolis)
-  ) {
+  if (balses.includes(simbolis)) {
     console.log("Balsė");
   } else if (simbolis >= "a" && simbolis <= "z") {
     console.log("Priebalsė");
@@ -412,33 +408,15 @@ function patikrinkSimboliSuIf(simbolis) {
 }
 
 patikrinkSimboliSuIf("ą");
-patikrinkSimboliSuIf("b");
-patikrinkSimboliSuIf("1");
 function patikrinkSimboliSuTernary(simbolis) {
   simbolis = simbolis.toLowerCase();
-  const rezultatas = [
-    "a",
-    "e",
-    "i",
-    "o",
-    "u",
-    "ą",
-    "ę",
-    "ė",
-    "į",
-    "ų",
-    "ū",
-  ].includes(simbolis)
+  return balses.includes(simbolis)
     ? "Balsė"
     : simbolis >= "a" && simbolis <= "z"
     ? "Priebalsė"
     : "Tai nėra raidė";
-
-  console.log(rezultatas);
 }
-patikrinkSimboliSuTernary("ą");
-patikrinkSimboliSuTernary("b");
-patikrinkSimboliSuTernary("1");
+console.log(patikrinkSimboliSuTernary("z"));
 
 // Parašykite programą, kuri pagal nurodytą dieną(pirmadienis, antradienis, ...sekmadienis) išveda, ar tai darbo diena ar savaitgalis.Kurį operatorių naudoti?
 let savaites_diena = "sekmadienis";

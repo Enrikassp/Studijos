@@ -1,0 +1,76 @@
+.products {
+  padding: 3em 0;
+  width: 1300px;
+}
+
+.product > .product-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.product > .product-details > .details {
+}
+
+.price-and-actions {
+  min-width: 20%;
+}
+
+.price-and-actions > .price {
+  font-size: 20px;
+  font-family: "Roboto", serif;
+  font-weight: bold;
+  margin: 18px 0px;
+}
+
+.price-and-actions > .price-with-discount {
+  margin: 18px 0px;
+}
+
+.price-and-actions > .price-with-discount > .discounted {
+  font-size: 20px;
+  font-family: "Roboto", serif;
+  font-weight: bold;
+  color: rgb(224, 68, 68);
+}
+
+.price-and-actions > .price-with-discount > .old-price {
+  line-height: 0;
+  font-size: 12px;
+  vertical-align: text-top;
+  text-decoration: line-through;
+  color: gray;
+}
+
+.product-details > .details > h4 {
+  color: rgb(33, 155, 255);
+}
+
+.price-and-actions > button {
+  outline: none;
+  border: none;
+  border-radius: 0.2em;
+  background-color: rgb(255, 213, 96);
+  padding: 0.8em 3em;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.price-and-actions > button:hover {
+  background-color: rgb(224, 179, 55);
+}
+
+.image {
+  position: relative;
+}
+
+.image > .discount {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgb(224, 68, 68);
+  padding: 4px 0.5em;
+  color: #fff;
+  user-select: none;
+  border-radius: 0.1em;
+}

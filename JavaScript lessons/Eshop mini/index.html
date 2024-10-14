@@ -24,202 +24,193 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="flex">
-    <nav>
-      <div class="leftSide">
-        <h1>Mano parduotuvė</h1>
-      </div>
+  <body>
+    <main class="container">
+      <Navigation></Navigation>
 
-      <div class="rightSide">
-        <ul>
-          <li>Parduotuvė</li>
-          <li>Parduotuvė</li>
-        </ul>
-      </div>
-    </nav>
-    <main>
-      <section id="navbar">
-        <ul>
-          <li class="active">
-            <i class="fa-solid fa-box-archive"></i> Produktai
-          </li>
-        </ul>
-      </section>
+      <main>
+        <section id="navbar">
+          <ul>
+            <li class="active">
+              <i class="fa-solid fa-box-archive"></i> Produktai
+            </li>
+          </ul>
+        </section>
 
-      <!-- <section id="addProduct">
-        <div class="rightSide">
-          <h2>Produktų pagrindinė informacija</h2>
+        <section id="addProduct">
+          <div class="rightSide">
+            <h2>Produktų pagrindinė informacija</h2>
 
-          <div class="inputContainer">
-            <div class="input">
-              <label>
-                <span>Įveskite produkto pavadinimą</span>
-                <input id="title" type="text" placeholder="Produktas" />
-              </label>
-            </div>
-            <div class="input">
-              <label>
-                <span>Įveskite produkto kainą</span>
-                <input
-                  id="price"
-                  type="number"
-                  min="0.10"
-                  max="10000"
-                  placeholder="Kaina"
-                />
-              </label>
-            </div>
-            <div class="input">
-              <label>
-                <span>Aprašymas</span>
-                <textarea id="description" cols="100"></textarea>
-              </label>
-            </div>
+            <div class="inputContainer">
+              <div class="input">
+                <label>
+                  <span>Įveskite produkto pavadinimą</span>
+                  <input id="title" type="text" placeholder="Produktas" />
+                </label>
+              </div>
+              <div class="input">
+                <label>
+                  <span>Įveskite produkto kainą</span>
+                  <input
+                    id="price"
+                    type="number"
+                    min="0.10"
+                    max="10000"
+                    placeholder="Kaina"
+                  />
+                </label>
+              </div>
+              <div class="input">
+                <label>
+                  <span>Aprašymas</span>
+                  <textarea id="description" cols="100"></textarea>
+                </label>
+              </div>
 
-            <div class="input">
-              <label>
-                <span>Įveskite nuolaidą (neprivaloma)</span>
-                <input
-                  id="discount"
-                  type="number"
-                  min="90"
-                  max="1"
-                  placeholder="Nuolaida"
-                />
-              </label>
-            </div>
-            <div class="input">
-              <label>
-                <span>Įveskite kiekį sandelyje</span>
-                <input
-                  id="count"
-                  type="number"
-                  min="0"
-                  max="10000"
-                  placeholder="Nuolaida"
-                />
-              </label>
-            </div>
-            <div class="input">
-              <label>
-                <span>Įveskite prekinį ženklą</span>
-                <input id="brand" type="text" placeholder="Brand" />
-              </label>
-            </div>
+              <div class="input">
+                <label>
+                  <span>Įveskite nuolaidą (neprivaloma)</span>
+                  <input
+                    id="discount"
+                    type="number"
+                    min="90"
+                    max="1"
+                    placeholder="Nuolaida"
+                  />
+                </label>
+              </div>
+              <div class="input">
+                <label>
+                  <span>Įveskite kiekį sandelyje</span>
+                  <input
+                    id="count"
+                    type="number"
+                    min="0"
+                    max="10000"
+                    placeholder="Nuolaida"
+                  />
+                </label>
+              </div>
+              <div class="input">
+                <label>
+                  <span>Įveskite prekinį ženklą</span>
+                  <input id="brand" type="text" placeholder="Brand" />
+                </label>
+              </div>
 
-            <div class="input">
-              <label>
-                <span>Pasirinkite kategorija</span>
+              <div class="input">
+                <label>
+                  <span>Pasirinkite kategorija</span>
 
-                <select id="category">
-                  <option value="home-decoration">Namų dekoracijos</option>
-                  <option value="groceries">Kanceliarinės prekės</option>
-                  <option value="skincare">Odos priežiūros produktai</option>
-                  <option value="fragrances">Kvepalai</option>
-                  <option value="laptops">Nešiojami kompiuteriai</option>
-                  <option value="smartphones">Telefonai</option>
-                </select>
-              </label>
+                  <select id="category">
+                    <option value="home-decoration">Namų dekoracijos</option>
+                    <option value="groceries">Kanceliarinės prekės</option>
+                    <option value="skincare">Odos priežiūros produktai</option>
+                    <option value="fragrances">Kvepalai</option>
+                    <option value="laptops">Nešiojami kompiuteriai</option>
+                    <option value="smartphones">Telefonai</option>
+                  </select>
+                </label>
+              </div>
             </div>
+            <button onclick="addProduct();">Pridėti prekę</button>
           </div>
-          <button onclick="addProduct();">Pridėti prekę</button>
-        </div>
-      </section> -->
+        </section>
 
-      <section id="productList">
-        <table id="produktai">
-          <thead>
-            <tr>
-              <th>Veiksmai</th>
-              <th>Produktas</th>
-              <th>Aprašymas</th>
-              <th>Likutis</th>
-              <th>Kaina</th>
-              <th>Prekinis ženklas</th>
-              <th>Kategorija</th>
-            </tr>
-          </thead>
-          <tbody id="productTable"></tbody>
-        </table>
-      </section>
+        <section id="productList">
+          <table id="produktai">
+            <thead>
+              <tr>
+                <th>Veiksmai</th>
+                <th>Produktas</th>
+                <th>Aprašymas</th>
+                <th>Likutis</th>
+                <th>Kaina</th>
+                <th>Prekinis ženklas</th>
+                <th>Kategorija</th>
+              </tr>
+            </thead>
+            <tbody id="productTable"></tbody>
+          </table>
+        </section>
 
-      <dialog id="editingModal">
-        <div class="input">
-          <label>
-            <span>Įveskite produkto pavadinimą</span>
-            <input id="editTitle" type="text" placeholder="Produktas" />
-          </label>
-        </div>
-        <div class="input">
-          <label>
-            <span>Įveskite produkto kainą</span>
-            <input
-              id="editPrice"
-              type="number"
-              min="0.10"
-              max="10000"
-              placeholder="Kaina"
-            />
-          </label>
-        </div>
-        <div class="input">
-          <label>
-            <span>Aprašymas</span>
-            <textarea id="editDescription" cols="100"></textarea>
-          </label>
-        </div>
+        <dialog id="editingModal">
+          <div class="input">
+            <label>
+              <span>Įveskite produkto pavadinimą</span>
+              <input id="editTitle" type="text" placeholder="Produktas" />
+            </label>
+          </div>
+          <div class="input">
+            <label>
+              <span>Įveskite produkto kainą</span>
+              <input
+                id="editPrice"
+                type="number"
+                min="0.10"
+                max="10000"
+                placeholder="Kaina"
+              />
+            </label>
+          </div>
+          <div class="input">
+            <label>
+              <span>Aprašymas</span>
+              <textarea id="editDescription" cols="100"></textarea>
+            </label>
+          </div>
 
-        <div class="input">
-          <label>
-            <span>Įveskite nuolaidą (neprivaloma)</span>
-            <input
-              id="editDiscount"
-              type="number"
-              min="90"
-              max="1"
-              placeholder="Nuolaida"
-            />
-          </label>
-        </div>
-        <div class="input">
-          <label>
-            <span>Įveskite kiekį sandelyje</span>
-            <input
-              id="editCount"
-              type="number"
-              min="0"
-              max="10000"
-              placeholder="Nuolaida"
-            />
-          </label>
-        </div>
-        <div class="input">
-          <label>
-            <span>Įveskite prekinį ženklą</span>
-            <input id="editBrand" type="text" placeholder="Brand" />
-          </label>
-        </div>
+          <div class="input">
+            <label>
+              <span>Įveskite nuolaidą (neprivaloma)</span>
+              <input
+                id="editDiscount"
+                type="number"
+                min="90"
+                max="1"
+                placeholder="Nuolaida"
+              />
+            </label>
+          </div>
+          <div class="input">
+            <label>
+              <span>Įveskite kiekį sandelyje</span>
+              <input
+                id="editCount"
+                type="number"
+                min="0"
+                max="10000"
+                placeholder="Nuolaida"
+              />
+            </label>
+          </div>
+          <div class="input">
+            <label>
+              <span>Įveskite prekinį ženklą</span>
+              <input id="editBrand" type="text" placeholder="Brand" />
+            </label>
+          </div>
 
-        <div class="input">
-          <label>
-            <span>Pasirinkite kategorija</span>
+          <div class="input">
+            <label>
+              <span>Pasirinkite kategorija</span>
 
-            <select id="editCategory">
-              <option value="home-decoration">Namų dekoracijos</option>
-              <option value="groceries">Kanceliarinės prekės</option>
-              <option value="skincare">Odos priežiūros produktai</option>
-              <option value="fragrances">Kvepalai</option>
-              <option value="laptops">Nešiojami kompiuteriai</option>
-              <option value="smartphones">Telefonai</option>
-            </select>
-          </label>
-        </div>
+              <select id="editCategory">
+                <option value="home-decoration">Namų dekoracijos</option>
+                <option value="groceries">Kanceliarinės prekės</option>
+                <option value="skincare">Odos priežiūros produktai</option>
+                <option value="fragrances">Kvepalai</option>
+                <option value="laptops">Nešiojami kompiuteriai</option>
+                <option value="smartphones">Telefonai</option>
+              </select>
+            </label>
+          </div>
 
-        <button onclick="closeModal()">Uždaryti</button>
-        <button onclick="updateProduct()">Išsaugoti</button>
-      </dialog>
+          <button onclick="closeModal()">Uždaryti</button>
+          <button onclick="updateProduct()">Išsaugoti</button>
+        </dialog>
+      </main>
     </main>
-
     <script src="scripts/updateProduct.js"></script>
     <script src="scripts/deleteProduct.js"></script>
     <script src="scripts/components.js"></script>

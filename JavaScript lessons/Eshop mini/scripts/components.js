@@ -11,3 +11,29 @@ function updateIcon(index) {
     <i class="fa-solid fa-pen-to-square"></i>
   </span>`;
 }
+
+function nav() {
+  return `
+        <div class="leftSide">
+          <h1>Mano parduotuvė</h1>
+        </div>
+
+        <div class="rightSide">
+          <ul>
+            <li><a href="/shop">Parduotuvė</a></li>
+            <li><a href="/">Dashboard</a></li>
+          </ul>
+        </div>
+  `;
+}
+
+function fillNavs() {
+  const navigations = document.querySelectorAll("Navigation");
+  console.log(navigations);
+  for (const navigation of navigations) {
+    console.log(navigation);
+    navigation.innerHTML = nav();
+  }
+}
+
+fillNavs();
