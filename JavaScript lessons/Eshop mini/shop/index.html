@@ -25,10 +25,48 @@
     <main class="container">
       <Navigation></Navigation>
 
-      <div class="products"></div>
+      <div class="products">
+        <div class="product">
+          <hr />
+
+          <div class="product-details">
+            <div class="image">
+              <img
+                src="https://placehold.co/200x200"
+                alt="Produkto nuotrauka"
+              />
+
+              <span class="discount">-${product.discount}%</span>
+            </div>
+            <div class="details">
+              <h4>${product.title}</h4>
+
+              <div class="rating" productIndex="1">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <p>${product.description}</p>
+            </div>
+            <div class="price-and-actions">
+              <div class="price-with-discount">
+                <span class="discounted"
+                  >${calculateRemainingPrice( product.price, product.discount
+                  )}€</span
+                >
+                <span class="old-price">${product.price}€</span>
+              </div>
+              <button>Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <script src="../scripts/components.js"></script>
     <script src="../scripts/createHtmlProducts.js"></script>
+    <script src="../scripts/rating.js"></script>
   </body>
 </html>

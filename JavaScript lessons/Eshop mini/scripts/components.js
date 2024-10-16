@@ -29,11 +29,21 @@ function nav() {
 
 function fillNavs() {
   const navigations = document.querySelectorAll("Navigation");
-  console.log(navigations);
   for (const navigation of navigations) {
-    console.log(navigation);
     navigation.innerHTML = nav();
   }
 }
 
 fillNavs();
+
+function fullStar() {
+  return `<i class="fa-solid fa-star"></i>`;
+}
+
+function halfStar() {
+  return `<i class="fa-solid fa-star-half-stroke"></i>`;
+}
+
+function emptyStar() {
+  return `<i class="fa-regular fa-star"></i>`;
+}

@@ -35,7 +35,6 @@ function generateProducts() {
   for (const index in products) {
     const product = products[index];
 
-    console.log(product.discount);
     product.discount > 0
       ? generateProduct(product, true)
       : generateProduct(product, false);

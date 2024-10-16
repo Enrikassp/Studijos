@@ -9,9 +9,6 @@
   gap: 1rem;
 }
 
-.product > .product-details > .details {
-}
-
 .price-and-actions {
   min-width: 20%;
 }
@@ -73,4 +70,10 @@
   color: #fff;
   user-select: none;
   border-radius: 0.1em;
+}
+
+.rating i {
+  font-size: 20px;
+  color: rgb(224, 146, 1);
+  cursor: pointer;
 }
