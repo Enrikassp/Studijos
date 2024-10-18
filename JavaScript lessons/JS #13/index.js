@@ -54,17 +54,32 @@ function getAverageDateTemp(data) {
 
   for (const date of data) {
     const times = Object.keys(date.hourlyTemperatures);
+    let minTemp = Infinity;
+    let maxTemp = -Infinity;
     let totalTemp = 0;
     let tempCount = 0;
 
     for (const time of times) {
-      totalTemp += date.hourlyTemperatures[time];
+      const currentTemp = date.hourlyTemperatures[time];
+      totalTemp += currentTemp;
       tempCount++;
+
+      if (currentTemp < minTemp) {
+        minTemp = currentTemp;
+      }
+      if (currentTemp > maxTemp) {
+        maxTemp = currentTemp;
+      }
     }
 
     const averageTemp = totalTemp / tempCount;
 
-    averages.push({ averageTemp: averageTemp.toFixed(2), date: date.date });
+    averages.push({
+      averageTemp: averageTemp.toFixed(2),
+      date: date.date,
+      minTemp: minTemp,
+      maxTemp: maxTemp,
+    });
   }
 
   return averages;
@@ -116,6 +131,8 @@ function setupTable(data) {
     html += `   
     <tr>
       <td>${temp.date}</td>
+      <td>${temp.minTemp}</td>
+      <td>${temp.maxTemp}</td>
       <td>${temp.averageTemp}</td>
     </tr>
         `;
