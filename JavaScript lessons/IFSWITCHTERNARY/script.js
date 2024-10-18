@@ -112,38 +112,17 @@
 // "Labai gerai", "Gerai", "Patenkinamai" arba "Nepatenkinamai".Kuris operatorius čia tinkamiausias?
 let balas = 10;
 
-switch (balas) {
-  case 0:
+switch (true) {
+  case balas >= 0 && balas < 5:
     console.log("Nepatenkinamai");
     break;
-  case 1:
-    console.log("Nepatenkinamai");
-    break;
-  case 2:
-    console.log("Nepatenkinamai");
-    break;
-  case 3:
-    console.log("Nepatenkinamai");
-    break;
-  case 4:
-    console.log("Nepatenkinamai");
-    break;
-  case 5:
+  case balas >= 5 && balas < 7:
     console.log("Patenkinamai");
     break;
-  case 6:
-    console.log("Patenkinamai");
-    break;
-  case 7:
+  case balas >= 7 && balas < 10:
     console.log("Gerai");
     break;
-  case 8:
-    console.log("Gerai");
-    break;
-  case 9:
-    console.log("Gerai");
-    break;
-  case 10:
+  case balas == 10:
     console.log("Labai gerai");
     break;
 }
@@ -280,8 +259,11 @@ switch (true) {
   case vartotojoAmzius >= 20 && vartotojoAmzius <= 64:
     console.log('Suaugęs"(20 - 64)');
     break;
-  default:
+  case vartotojoAmzius > 65:
     console.log('Pensininkas"(65 +)');
+    break;
+  default:
+    console.log("Tokio amziaus grupėje nėra");
     break;
 }
 
@@ -289,15 +271,19 @@ if (vartotojoAmzius >= 13 && vartotojoAmzius <= 19) {
   console.log('Jaunuolis"(13 - 19)');
 } else if (vartotojoAmzius >= 20 && vartotojoAmzius <= 64) {
   console.log('Suaugęs"(20 - 64)');
-} else {
+} else if (vartotojoAmzius > 65) {
   console.log('Pensininkas"(65 +)');
+} else {
+  console.log("Tokio amziaus grupėje nėra");
 }
 
 vartotojoAmzius >= 13 && vartotojoAmzius <= 19
   ? console.log('Jaunuolis"(13 - 19)')
   : vartotojoAmzius >= 20 && vartotojoAmzius <= 64
   ? console.log('Suaugęs"(20 - 64)')
-  : console.log('Pensininkas"(65 +)');
+  : vartotojoAmzius > 65
+  ? console.log('Pensininkas"(65 +)')
+  : console.log("Tokio amziaus grupėje nėra");
 
 // Parašykite programą, kuri patikrina, ar skaičius yra lyginis ar nelyginis, ir atspausdina atitinkamą pranešimą.Kuris operatorius čia tinkamiausias?
 let arLyginis = 0;
