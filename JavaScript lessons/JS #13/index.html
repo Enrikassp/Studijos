@@ -4,13 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 1rem;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <h3 class="header">{city} Temperatūrų analizė</h3>
     <p class="firstDate"><b>Pirma data:</b> <span>{data}</span></p>
     <p class="lastDate"><b>Paskutine data:</b> <span>{data}</span></p>
-    <p class="averageTemp"><b>Vidutinės temperatūros: {averageTemp}</b></p>
-    <table></table>
+    <p class="averageTemp">
+      <b>Savaitės vidutinė temperatūra: {averageTemp}</b>
+    </p>
+
+    <p><b>Vidutinės temperatūros</b></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Vidutinė temperatūra</th>
+        </tr>
+      </thead>
+      <tbody class="tableRow"></tbody>
+    </table>
+
     <p class="warmestDayTemp">
       <b>Šilčiausia (pagal vid. temp) diena:</b>
       <span>{data} - Vid. temp: {temp}</span>

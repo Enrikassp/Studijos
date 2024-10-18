@@ -29,6 +29,7 @@ function temperatureData(data) {
 
   const dailyAverage = getAverageDateTemp(allTempDates);
   displayWarmColdDays(dailyAverage);
+  setupTable(dailyAverage);
 }
 
 function getOverAllAverageTemp(temps) {
@@ -105,6 +106,22 @@ function displayWarmColdDays(dailyAverage) {
     "{temp}",
     getWarmestDay(dailyAverage).averageTemp
   );
+}
+
+function setupTable(data) {
+  const tableRow = document.querySelector(".tableRow");
+  let html = "";
+
+  for (const temp of data) {
+    html += `   
+    <tr>
+      <td>${temp.date}</td>
+      <td>${temp.averageTemp}</td>
+    </tr>
+        `;
+  }
+
+  tableRow.innerHTML = html;
 }
 
 function getFirstDate(data) {
