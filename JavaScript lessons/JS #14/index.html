@@ -13,9 +13,23 @@
     <title>Asinchroninės operacijos</title>
   </head>
   <body>
+    <div class="p-3">
+      <label>
+        Paieška
+        <input id="search" />
+        <button onclick="searchForABook()">Ieškoti</button>
+      </label>
+
+      <label onchange="filterByOption()">
+        Kategorija
+        <select id="selection"></select>
+      </label>
+    </div>
+
     <div class="bookTypes"></div>
 
     <div class="bookList d-flex justify-content-between flex-wrap"></div>
+    <script src="api.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

@@ -1,31 +1,30 @@
-async function getBooksFromApi() {
-  const promise = await fetch("https://in3.dev/knygos/");
-  const data = await promise.json();
+const currentBooks = [];
+const currentTypes = [];
 
-  setupBooksOnHtml(data);
+async function main() {
+  const booksAndTypes = await getBooksAndBookTypesFromApi();
+  const books = booksAndTypes.books;
+  const types = booksAndTypes.types;
+  console.log(books, types);
+
+  setupBooksOnHtml(books, types);
+  setupOptionSelects(types);
+  currentBooks.push(...books);
+  currentTypes.push(...types);
 }
 
-async function getBookTypesFromApi() {
-  const promise = await fetch("https://in3.dev/knygos/types/");
-  const data = await promise.json();
-  return data;
-}
+main();
 
-async function setupBooksOnHtml(bookData) {
+function setupBooksOnHtml(bookData, bookTypes) {
   let bookList = document.querySelector(".bookList");
   let html = ``;
 
-  const bookTypes = await getBookTypesFromApi();
-
-  const typeMap = {};
-  for (const type of bookTypes) {
-    typeMap[type.id] = type.title;
-  }
+  const bookTypeMap = typeMap(bookTypes);
 
   for (const book of bookData) {
-    const bookTypeTitle = typeMap[book.type] || "Nežinomas";
+    const bookTypeTitle = bookTypeMap[book.type] || "Nežinomas";
 
-    html += `  
+    html += `
     <div class="p-2 w-25 d-flex flex-column align-items-center">
         <img
           src="${book.img}"
@@ -39,7 +38,7 @@ async function setupBooksOnHtml(bookData) {
         <h3>${book.author}</h3>
         <h6>${bookTypeTitle}</h6>
         <p>${new Date(
-          book.time
+          book.time * 1000
         ).toLocaleDateString()}</p> <!-- Format date for better readability -->
 
         <h2>${book.price}€</h2>
@@ -50,4 +49,62 @@ async function setupBooksOnHtml(bookData) {
   bookList.innerHTML = html;
 }
 
-getBooksFromApi();
+function typeMap(bookTypes) {
+  const typeMap = {};
+  for (const type of bookTypes) {
+    typeMap[type.id] = type.title;
+  }
+
+  return typeMap;
+}
+
+function searchForABook() {
+  const inputValue = document.querySelector("#search").value;
+
+  const filteredBooks = searchBooks(currentBooks, inputValue);
+  setupBooksOnHtml(filteredBooks, currentTypes);
+}
+
+function searchBooks(books, searchQuery) {
+  const query = searchQuery.toLowerCase();
+  const bookTypeMap = typeMap(currentTypes);
+
+  return books.filter((book) => {
+    const bookTypeTitle = bookTypeMap[book.type] || "Nežinomas";
+    const titleMatch = book.title.toLowerCase().includes(query);
+    const authorMatch = book.author.toLowerCase().includes(query);
+    const typeMatch = bookTypeTitle.toLowerCase().includes(query);
+
+    return titleMatch || authorMatch || typeMatch;
+  });
+}
+
+function setupOptionSelects(types) {
+  const selection = document.querySelector("#selection");
+  let optionHtml = ``;
+
+  for (const type of types) {
+    optionHtml += `<option value="${type.id}">${type.title}</option>`;
+  }
+
+  selection.innerHTML = optionHtml;
+}
+
+function filterByOption() {
+  const selectedValue = document.querySelector("#selection").value;
+  const filteredBooks = filterByOptionFunction(currentBooks, selectedValue);
+
+  setupBooksOnHtml(filteredBooks, currentTypes);
+}
+
+function filterByOptionFunction(books, option) {
+  const bookTypeMap = typeMap(currentTypes);
+
+  return books.filter((book) => {
+    const bookTypeTitle = bookTypeMap[book.type] || "Nežinomas";
+    const optionToTitle = bookTypeMap[option].toLowerCase();
+    const typeMatch = bookTypeTitle.toLowerCase().includes(optionToTitle);
+
+    return typeMatch;
+  });
+}
