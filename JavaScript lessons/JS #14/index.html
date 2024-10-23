@@ -12,23 +12,44 @@
 
     <title>Asinchroninės operacijos</title>
   </head>
-  <body>
-    <div class="p-3">
+  <body class="d-flex justify-content-center align-items-center flex-column">
+    <div class="p-3 d-flex align-items-center gap-5">
       <label>
         Paieška
-        <input id="search" />
-        <button onclick="searchForABook()">Ieškoti</button>
+        <div class="input-group">
+          <input
+            id="search"
+            type="text"
+            class="form-control"
+            placeholder="Įveskite knygą"
+            aria-describedby="button-addon2"
+          />
+          <button
+            onclick="searchForABook()"
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+          >
+            Ieškoti
+          </button>
+        </div>
       </label>
 
       <label onchange="filterByOption()">
         Kategorija
-        <select id="selection"></select>
+        <select
+          id="selection"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option selected>Pasirinkite knygos tipa</option>
+        </select>
       </label>
     </div>
 
     <div class="bookTypes"></div>
 
-    <div class="bookList d-flex justify-content-between flex-wrap"></div>
+    <div class="bookList d-flex justify-content-between flex-column"></div>
     <script src="api.js"></script>
     <script src="index.js"></script>
   </body>
