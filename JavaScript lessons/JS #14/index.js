@@ -28,15 +28,19 @@ function setupBooksOnHtml(bookData, bookTypes) {
    <div
         class="p-2 d-flex align-items-center shadow-sm p-3 mb-5 bg-white rounded"
       >
-        <img src="${book.img}" height="200" class="px-5" />
+        <img src="${book.img}" width="250" class="px-5" />
 
         <article class="">
           <h5 class="w-5">${book.title}</h5>
           <h5>${book.author}</h5>
-          <h6>${bookTypeTitle}</h6>
-          <p>${new Date(book.time * 1000).toLocaleDateString()}</p>
-          <h5>${book.price}€</h5>
+          <p>Kategorija: ${bookTypeTitle}</p>
+          <p>Data: ${new Date(book.time * 1000).toLocaleDateString()}</p>
         </article>
+
+        <div class="p-5 flex-shrink-1 ms-auto text-center">
+          <p class="fs-3">${book.price}€</p>
+          <button type="button" class="btn btn-primary">Pridėti į krepšelį</button>
+        </div>
       </div>
     `;
   }
