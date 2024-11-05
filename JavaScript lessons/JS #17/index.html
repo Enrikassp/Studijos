@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      form > div {
+        margin-bottom: 1rem;
+      }
+
+      form > div > input {
+        border: 1px solid black;
+        padding: 0.5rem 0.25rem;
+        outline: none;
+        border-radius: 3px;
+        min-width: 180px;
+      }
+      form > div > input:focus {
+        outline: 2px solid rgb(99, 180, 174);
+      }
+      form > div > label {
+        width: 150px;
+        display: inline-block;
+      }
+
+      form > button {
+        background-color: rgb(99, 180, 174);
+        padding: 0.5rem 4rem;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      form > button:hover {
+        background-color: rgb(59, 134, 129);
+      }
+
+      td,
+      th {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 0.5rem;
+      }
+
+      table {
+        margin-top: 3rem;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Maratono dalyvių registracija</h3>
+
+    <form>
+      <div>
+        <label for="dalyvisName">Dalyvio vardas</label>
+        <input
+          id="dalyvisName"
+          type="text"
+          name="dalyvisName"
+          placeholder="Dalyvio vardas"
+        />
+      </div>
+      <div>
+        <label for="dalyvisSecondName">Dalyvio pavardė</label>
+        <input
+          id="dalyvisSecondName"
+          type="text"
+          name="dalyvisSecondName"
+          placeholder="Dalyvio pavardė"
+        />
+      </div>
+      <div>
+        <label for="dalyvisAge">Dalyvio amžius</label>
+        <input
+          id="dalyvisAge"
+          type="number"
+          min="0"
+          max="100"
+          name="dalyvisAge"
+          placeholder="Dalyvio amžius"
+        />
+      </div>
+      <div>
+        <label for="dalyvisWeight">Dalyvio svoris</label>
+        <input
+          id="dalyvisWeight"
+          type="number"
+          min="30"
+          max="200"
+          name="dalyvisWeight"
+          placeholder="Dalyvio svoris"
+        />
+      </div>
+
+      <button>Išsiūsti</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Vardas</th>
+          <th>Pavardė</th>
+          <th>Amžius</th>
+          <th>Svoris</th>
+          <th>Svorio kategorija</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

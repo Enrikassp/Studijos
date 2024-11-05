@@ -1,0 +1,16 @@
+Marathon {
+    #begikuSkaicius
+    IKategorijosBegikai()
+    IIKategorijosBegikai()
+    IIIKategorijosBegikai()
+
+    pridetiBegika()
+
+    prideti begika i viena is triju kategoriju
+    atnaujinti begiku begikuSkaicius
+    atnaujinti DOM
+}
+
+Runner {
+    
+}
