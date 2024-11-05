@@ -62,10 +62,15 @@ export default class Marathon {
       );
     }
 
-    // Pridejimas prie vienos is trieju kategoriju
+    if (runner.id !== null) {
+      return console.error(
+        "Pridedamas bėgikas jau yra užregistruotas maratone"
+      );
+    }
+
     const runnerID = this.#idCounter.next().value;
     const runnerCategory = this.#priskirtiBegikuiKategorija(runner);
     runner.registerToMarathon(runnerID, runnerCategory);
-    // addRunnerToTable(runner, runnerCategory);
+    addRunnerToTable(runner);
   }
 }

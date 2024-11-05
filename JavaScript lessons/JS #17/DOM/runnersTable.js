@@ -1,7 +1,6 @@
 const tableBody = document.querySelector("#tableBody");
 
 export function addRunnerToTable(runner, category) {
-  console.log(runner, category);
   tableBody.innerHTML += ` 
     <tr>
         <td>${runner.id}.</td>
@@ -9,6 +8,6 @@ export function addRunnerToTable(runner, category) {
         <td>${runner.secondName}</td>
         <td>${runner.age}</td>
         <td>${runner.weight}kg</td>
-        <td>${category}</td>
+        <td>${runner.category}</td>
     </tr> `;
 }
