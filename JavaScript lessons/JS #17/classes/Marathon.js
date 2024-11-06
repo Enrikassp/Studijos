@@ -1,4 +1,4 @@
-import { addRunnerToTable } from "../DOM/runnersTable.js";
+import { addRunnerToTable, istrintiBegika } from "../DOM/runnersTable.js";
 import Runner from "./Runner.js";
 
 export default class Marathon {
@@ -54,8 +54,17 @@ export default class Marathon {
     }
   }
 
+  findRunnerById(runnerId) {
+    const allRunners = [
+      ...this.#IKategorijosBegikai,
+      ...this.#IIKategorijosBegikai,
+      ...this.#IIIKategorijosBegikai,
+    ];
+
+    return allRunners.find((runner) => runner.id === runnerId) || null;
+  }
+
   pridetiBegika(runner) {
-    // instanceoff patikrina is kokios klases yra sudarytas objektas
     if (!(runner instanceof Runner)) {
       return console.error(
         "Pridedamas bėgikas privalo būti objektas, sudarytas iš klasės 'Runner'"
@@ -72,5 +81,30 @@ export default class Marathon {
     const runnerCategory = this.#priskirtiBegikuiKategorija(runner);
     runner.registerToMarathon(runnerID, runnerCategory);
     addRunnerToTable(runner);
+  }
+
+  #pasalintiIsKategorijuMasyvo(runner) {
+    let kategorijosMasyvas;
+
+    switch (runner.category) {
+      case "I":
+        kategorijosMasyvas = this.#IKategorijosBegikai;
+        break;
+      case "II":
+        kategorijosMasyvas = this.#IIKategorijosBegikai;
+        break;
+      case "III":
+        kategorijosMasyvas = this.#IIIKategorijosBegikai;
+        return;
+    }
+
+    const index = kategorijosMasyvas.findIndex((val) => runner.id === val.id);
+    kategorijosMasyvas.splice(index, 1);
+  }
+
+  pasalintiBegika(runner) {
+    this.#pasalintiIsKategorijuMasyvo(runner);
+    istrintiBegika(runner.id);
+    runner.unregisterFromMarathon();
   }
 }

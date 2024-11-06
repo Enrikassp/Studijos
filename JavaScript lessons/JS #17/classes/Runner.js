@@ -14,12 +14,21 @@ export default class Runner {
     this.#category = null;
   }
 
-  registerToMarathon(id, category) {
+  registerToMarathon(id, category, marathon) {
     if (this.#id === null && this.#category === null) {
       this.#id = id;
       this.#category = category;
     } else {
       console.error("Begikas jau yra užregistruotas");
+    }
+  }
+
+  unregisterFromMarathon() {
+    if (this.#id !== null || this.#category !== null) {
+      this.#id = null;
+      this.#category = null;
+    } else {
+      console.error("Begikas nėra užregistruotas");
     }
   }
 

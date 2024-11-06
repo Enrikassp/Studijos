@@ -1,6 +1,5 @@
 import Marathon from "./classes/Marathon.js";
 import Runner from "./classes/Runner.js";
-
 const runner1 = new Runner("Algirdas", "Laiškauskas", 26, 70);
 
 const marathon = new Marathon();
@@ -21,3 +20,13 @@ form.addEventListener("submit", (event) => {
   marathon.pridetiBegika(newRunner);
   form.reset();
 });
+
+window.deleteRunner = function (runnerId) {
+  const runner = marathon.findRunnerById(runnerId);
+
+  if (runner) {
+    marathon.pasalintiBegika(runner);
+  } else {
+    console.error("Runner not found");
+  }
+};
