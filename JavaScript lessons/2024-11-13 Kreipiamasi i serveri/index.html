@@ -9,6 +9,29 @@
     <h3>Žmonių sąrašas</h3>
     <ul id="people-list"></ul>
 
+    <form action="http://localhost:8080/users" method="post" id="my-form">
+      <div>
+        <input
+          type="text"
+          name="name"
+          placeholder="Naudotojo vardas"
+          required
+          pattern="^[a-zA-Z]+$"
+        />
+      </div>
+      <div>
+        <input
+          type="number"
+          name="age"
+          placeholder="Naudotojo amzius"
+          required
+          min="18"
+          max="100"
+        />
+      </div>
+      <button type="submit">Išsiūsti duomenis</button>
+    </form>
+
     <script type="module" src="index.js"></script>
   </body>
 </html>

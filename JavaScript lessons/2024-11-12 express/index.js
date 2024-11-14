@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
+import bodyParser from "body-parser";
 import { readFromUsersFile, writeToUsersFile } from "./file-io.js";
-
 const server = express();
 // express.json() - middleware kuris pritaiko palaikuma priimti JSON duomenis
 server.use(express.json());
+server.use(bodyParser.urlencoded({ extended: true }));
 
 server.use(cors());
 server.listen(8080, () => {
@@ -39,10 +40,16 @@ server.get("/users/:id", (req, res) => {
 server.post("/users", (req, res) => {
   const users = readFromUsersFile();
   const newUser = req.body;
+
+  if (!newUser.age || !newUser.name) {
+    return res.status(400).json("not valid user schema");
+  }
+
   newUser.id = idGen.next().value;
   users.push(newUser);
   writeToUsersFile(users);
-  res.status(201).json(newUser);
+  // res.status(201).json(newUser);
+  res.redirect("http://127.0.0.1:5500/index.html");
 });
 
 // PUT
