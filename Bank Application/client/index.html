@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <title>Bank application</title>
+
+    <style type="text/tailwindcss">
+      input {
+        padding: 1rem;
+        background-color: rgb(233, 233, 233);
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        height: 40px;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      button {
+        background: rgb(49, 120, 214);
+        border-radius: 5px;
+        color: white;
+        font-weight: 600;
+        padding: 0.5rem;
+        transition: all 0.2s ease-in-out;
+      }
+
+      button:hover {
+        background: rgb(30, 77, 138);
+      }
+    </style>
+  </head>
+  <body class="flex justify-center place-items-center h-[100vh]">
+    <div class="shadow p-5 rounded w-[600px]">
+      <article class="mb-5">
+        <div class="flex justify-between">
+          <div>
+            <h1 class="text-xl font-bold">HTML BANK</h1>
+            <span class="bankHeader"
+              >Jūs esate prisijungęs kaip,
+              <span class="font-semibold">{username}</span></span
+            >
+          </div>
+
+          <button
+            class="h-8 py-1 bg-red-500 hover:bg-red-800"
+            onclick="signoutUser()"
+          >
+            Atsijungti
+          </button>
+        </div>
+
+        <div class="bg-gray-200 rounded p-4 mt-4">
+          <h1>Sąskaitos likutis:</h1>
+          <h2 class="bankBalance text-xl font-bold">{balansas}</h2>
+        </div>
+      </article>
+
+      <div class="flex flex-col gap-3">
+        <h1 class="font-semibold">Pinigų įnešimas</h1>
+        <input
+          id="depositInput"
+          name="imoka"
+          placeholder="Įveskite sumą kokį kieki norite įnešti"
+          type="number"
+          min="1"
+        />
+        <button onclick="addMoney()">Įnešti pinigų</button>
+
+        <h1 class="font-semibold">Pinigų išnešimas</h1>
+        <input
+          id="withdrawInput"
+          name="isnesimas"
+          placeholder="Įveskite sumą kokį kieki norite išnešti"
+          type="number"
+          min="1"
+        />
+        <button onclick="removeMoney()">Išnesti pinigų</button>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
