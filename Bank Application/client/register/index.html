@@ -38,10 +38,18 @@
   <body class="flex justify-center place-items-center h-[100vh]">
     <div class="shadow w-[400px] rounded">
       <h1 class="font-bold text-xl text-center mt-2">Registracija</h1>
-      <form class="flex flex-col gap-3 p-4">
+      <form class="flex flex-col gap-3 p-4" onsubmit="createUser(event)">
         <input name="user" placeholder="Įveskite slapyvardi" />
-        <input type="password" placeholder="Įveskite slaptažodį" />
-        <input type="password" placeholder="Pakartokite slaptažodį" />
+        <input
+          type="password"
+          name="password"
+          placeholder="Įveskite slaptažodį"
+        />
+        <input
+          type="password"
+          name="repeatedPassword"
+          placeholder="Pakartokite slaptažodį"
+        />
         <button>Registruotis</button>
         <span class="text-center"
           >Turite paskyra?
@@ -54,5 +62,7 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="../index.js"></script>
   </body>
 </html>

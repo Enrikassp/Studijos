@@ -1,6 +1,7 @@
 import {
   addMoneyToUser,
   checkLoginData,
+  createUserAPI,
   removeMoneyFromUser,
 } from "./repository/repository.js";
 
@@ -14,7 +15,9 @@ console.log(
 );
 
 if (!loggedInAs && window.location.pathname !== "/login/") {
-  window.location.replace("/login/");
+  if (window.location.pathname !== "/register/") {
+    window.location.replace("/login/");
+  }
 } else if (loggedInAs) {
   initializeBankHTML();
 }
@@ -36,9 +39,6 @@ async function loginUser(event) {
     localStorage.setItem("loggedIn", JSON.stringify(isUserLogin));
     loggedInAs = isUserLogin;
     window.location.replace("/");
-  } else {
-    console.error("Invalid login credentials.");
-    alert("Incorrect username or password. Please try again.");
   }
 }
 window.loginUser = loginUser;
@@ -74,17 +74,6 @@ async function addMoney() {
   if (isNaN(depositInput) || depositInput <= 0) {
     Toastify({
       text: "Įveskite taisiklingą išnešimo sumą",
-      className: "info",
-      style: {
-        background: "red",
-      },
-    }).showToast();
-    return;
-  }
-
-  if (loggedInAs.balance < depositInput) {
-    Toastify({
-      text: "Jūs neturite tokios sumos sąskaitoje",
       className: "info",
       style: {
         background: "red",
@@ -163,3 +152,53 @@ async function removeMoney() {
   }
 }
 window.removeMoney = removeMoney;
+
+async function createUser(event) {
+  const formData = new FormData(event.target);
+  const user = formData.get("user");
+  const password = formData.get("password");
+  const repeatedPassword = formData.get("repeatedPassword");
+  event.preventDefault();
+
+  if (user.length === 0) {
+    Toastify({
+      text: "Vardas negali būti tuščias laukelis",
+      className: "info",
+      style: {
+        background: "red",
+      },
+    }).showToast();
+    return;
+  }
+
+  if (password.length < 3) {
+    Toastify({
+      text: "Slaptažodis turi būti bent 3 simbolių",
+      className: "info",
+      style: {
+        background: "red",
+      },
+    }).showToast();
+    return;
+  }
+
+  if (password !== repeatedPassword) {
+    Toastify({
+      text: "Pakartotinas slaptažodis nesutampa",
+      className: "info",
+      style: {
+        background: "red",
+      },
+    }).showToast();
+    return;
+  }
+
+  const isCreated = await createUserAPI({ username: user, password: password });
+  console.log("SUKURIAM", isCreated);
+
+  if (isCreated) {
+    window.location.replace("/login/");
+    localStorage.removeItem("loggedIn");
+  }
+}
+window.createUser = createUser;

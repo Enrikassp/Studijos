@@ -38,3 +38,22 @@ export async function addMoneyFromUser(userid, balance) {
     return { success: false, message: error.message };
   }
 }
+
+export async function createNewUser(username, password, balance) {
+  try {
+    const [result] = await db.query(
+      `INSERT INTO users (username, password, balance) VALUES ('${username}', '${password}', '${balance}')`
+    );
+    console.log(result);
+    return {
+      success: true,
+      userId: result.insertId,
+    };
+  } catch (error) {
+    console.error("Error creating new user:", error);
+    return {
+      success: false,
+      error: error.message,
+    };
+  }
+}
