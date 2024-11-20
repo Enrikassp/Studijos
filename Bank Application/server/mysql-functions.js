@@ -1,17 +1,17 @@
 import db from "./mysql-connect.js";
 
 export async function getOneUser(username) {
-  const sql = `SELECT * FROM users WHERE username='${username}'`;
-  const [[data]] = await db.query(sql);
+  const sql = `SELECT * FROM users WHERE username=?`;
+  const [[data]] = await db.query(sql, [username]);
 
   return data;
 }
 
 export async function removeMoneyFromUser(userid, balance) {
-  const sql = `UPDATE users SET balance = balance - ${balance} WHERE id = ${userid}`;
+  const sql = `UPDATE users SET balance = balance - ? WHERE id = ?`;
 
   try {
-    const [result] = await db.query(sql);
+    const [result] = await db.query(sql, [balance, userid]);
 
     if (result.affectedRows === 0) {
       throw new Error("User not found or balance update failed.");
@@ -24,10 +24,10 @@ export async function removeMoneyFromUser(userid, balance) {
 }
 
 export async function addMoneyFromUser(userid, balance) {
-  const sql = `UPDATE users SET balance = balance + ${balance} WHERE id = ${userid}`;
+  const sql = `UPDATE users SET balance = balance + ? WHERE id = ?`;
 
   try {
-    const [result] = await db.query(sql);
+    const [result] = await db.query(sql, [balance, userid]);
 
     if (result.affectedRows === 0) {
       throw new Error("User not found or balance update failed.");
@@ -40,11 +40,10 @@ export async function addMoneyFromUser(userid, balance) {
 }
 
 export async function createNewUser(username, password, balance) {
+  const sql = `INSERT INTO users (username, password, balance) VALUES (?,?,?)`;
+
   try {
-    const [result] = await db.query(
-      `INSERT INTO users (username, password, balance) VALUES ('${username}', '${password}', '${balance}')`
-    );
-    console.log(result);
+    const [result] = await db.query(sql, [username, password, balance]);
     return {
       success: true,
       userId: result.insertId,
