@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Galerija</h2>
+
+    <div id="images"></div>
+
+    <script type="module">
+      const allImagesPromise = await fetch("/all-images");
+      const allImages = await allImagesPromise.json();
+
+      const imagesContainer = document.querySelector("#images");
+
+      for (const image of allImages) {
+        const imageElement = document.createElement("img");
+        imageElement.src = `/image/${image}`;
+        imageElement.style.width = "250px";
+        imageElement.style.height = "250px";
+        imagesContainer.appendChild(imageElement);
+      }
+    </script>
+  </body>
+</html>
