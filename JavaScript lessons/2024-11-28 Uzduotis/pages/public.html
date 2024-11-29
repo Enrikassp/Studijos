@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 select-none">
+    <nav class="bg-blue-600 p-4">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="text-white text-lg font-semibold flex flex-col">
+          <a>Nuotraukų pridėjimo sistema</a>
+        </div>
+        <div class="hidden md:flex space-x-4">
+          <a href="/" class="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
+            >Pagrindinis</a
+          >
+          <a
+            href="/add-file"
+            class="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
+            >Pridėti nuotrauką</a
+          >
+          <a
+            href="/protected"
+            class="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
+            >Albumas</a
+          >
+          <a
+            href="/logout"
+            class="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
+            >Atsijungti</a
+          >
+        </div>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-white">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="md:hidden hidden bg-blue-600 p-4 space-y-4">
+      <a
+        href="/"
+        class="text-white hover:bg-blue-700 px-3 py-2 rounded-md block"
+        >Pagrindinis</a
+      >
+      <a
+        href="/add-file"
+        class="text-white hover:bg-blue-700 px-3 py-2 rounded-md block"
+        >Pridėti nuotrauką</a
+      >
+      <a
+        href="/protected"
+        class="text-white hover:bg-blue-700 px-3 py-2 rounded-md block"
+        >Albumas</a
+      >
+      <a
+        href="/logout"
+        class="text-white hover:bg-blue-700 px-3 py-2 rounded-md block"
+        >Atsijungti</a
+      >
+    </div>
+
+    <main class="p-4">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <h1 class="text-xl">Viešos nuotraukos</h1>
+      </div>
+
+      <div
+        id="photos-container"
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 p-4"
+      ></div>
+    </main>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      async function fetchPhotos() {
+        try {
+          const response = await fetch("/photos/public-photos");
+          const data = await response.json();
+
+          if (data.photos && data.photos.length > 0) {
+            const photosContainer = document.getElementById("photos-container");
+            photosContainer.innerHTML = "";
+
+            data.photos.forEach((photo) => {
+              const photoCard = document.createElement("div");
+              photoCard.classList.add(
+                "photo-card",
+                "p-4",
+                "bg-white",
+                "shadow",
+                "rounded-md",
+                "w-[400px]"
+              );
+
+              const img = document.createElement("img");
+              img.src = `/${photo.photo}`;
+              img.alt = `${photo.author}'s photo`;
+              img.classList.add("w-full", "h-64", "object-cover", "rounded-md");
+
+              const authorText = document.createElement("p");
+              authorText.classList.add("text-gray-600", "mt-2");
+              authorText.innerText = `Author: ${photo.author}`;
+
+              photoCard.appendChild(img);
+              photoCard.appendChild(authorText);
+
+              photosContainer.appendChild(photoCard);
+            });
+          } else {
+            const noPhotosMessage = document.createElement("p");
+            noPhotosMessage.classList.add("text-gray-600");
+            noPhotosMessage.innerText = "No photos available.";
+            document
+              .getElementById("photos-container")
+              .appendChild(noPhotosMessage);
+          }
+        } catch (error) {
+          console.error("Error fetching photos:", error);
+        }
+      }
+
+      window.onload = fetchPhotos;
+    </script>
+  </body>
+</html>

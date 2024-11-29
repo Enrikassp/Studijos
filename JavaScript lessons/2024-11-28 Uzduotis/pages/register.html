@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      input {
+        padding: 1rem;
+        background-color: rgb(233, 233, 233);
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        height: 40px;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      button {
+        background: rgb(49, 120, 214);
+        border-radius: 5px;
+        color: white;
+        font-weight: 600;
+        padding: 0.5rem;
+        transition: all 0.2s ease-in-out;
+      }
+
+      button:hover {
+        background: rgb(30, 77, 138);
+      }
+    </style>
+    <title>Bank application | Login</title>
+  </head>
+  <body class="flex justify-center place-items-center h-[100vh] flex-col">
+    <h1 class="font-bold text-2xl mb-5">Nuotraukų pridėjimo sistema</h1>
+    <div class="shadow w-[400px] rounded">
+      <h1 class="font-bold text-xl text-center mt-2">Registracija</h1>
+      <form
+        class="flex flex-col gap-3 p-4"
+        action="/auth/register-user"
+        method="post"
+      >
+        <input name="user" placeholder="Įveskite slapyvardi" />
+        <input
+          type="password"
+          name="password"
+          placeholder="Įveskite slaptažodį"
+        />
+        <input
+          type="password"
+          name="repeatedPassword"
+          placeholder="Pakartokite slaptažodį"
+        />
+        <button>Registruotis</button>
+        <span class="text-center"
+          >Turite paskyra?
+          <a href="../login/" class="font-semibold">Prisijungti</a></span
+        >
+      </form>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="../index.js"></script>
+  </body>
+</html>

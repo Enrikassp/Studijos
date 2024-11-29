@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <body class="bg-gray-100 select-none">
+      <nav class="bg-blue-600 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+          <div class="text-white text-lg font-semibold">
+            <a href="#">Nuotraukų pridėjimo sistema</a>
+          </div>
+          <div class="hidden md:flex space-x-4">
+            <a
+              href="/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
+              >Pagrindinis</a
+            >
+            <a
+              href="/add-file"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
+              >Pridėti nuotrauką</a
+            >
+            <a
+              href="/protected"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
+              >Albumas</a
+            >
+            <a
+              href="/logout"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
+              >Atsijungti</a
+            >
+          </div>
+          <div class="md:hidden">
+            <button id="menu-toggle" class="text-white">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <div id="mobile-menu" class="md:hidden hidden bg-blue-600 p-4 space-y-4">
+        <a
+          href="/"
+          class="text-white hover:bg-blue-700 px-3 py-2 rounded-md block"
+          >Pagrindinis</a
+        >
+        <a
+          href="/add-file"
+          class="text-white hover:bg-blue-700 px-3 py-2 rounded-md block"
+          >Pridėti nuotrauką</a
+        >
+        <a
+          href="/protected"
+          class="text-white hover:bg-blue-700 px-3 py-2 rounded-md block"
+          >Albumas</a
+        >
+        <a
+          href="/logout"
+          class="text-white hover:bg-blue-700 px-3 py-2 rounded-md block"
+          >Atsijungti</a
+        >
+      </div>
+
+      <main class="p-8 bg-gray-100 min-h-screen">
+        <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+          <h1 class="text-3xl font-semibold text-gray-800 mb-6">
+            Nuotraukos pridėjimas
+          </h1>
+
+          <form
+            class="flex flex-col space-y-4"
+            action="/upload-file"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="flex items-center space-x-2">
+              <label for="privateSave" class="text-lg text-gray-700">
+                Išsaugoti privačiai?
+              </label>
+
+              <div class="inline-flex items-center">
+                <label class="flex items-center cursor-pointer relative">
+                  <input
+                    type="checkbox"
+                    id="privateSave"
+                    name="privateSave"
+                    class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+                  />
+                  <span
+                    class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-3.5 w-3.5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="1"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label for="fileUpload" class="block text-lg text-gray-700">
+                Pasirinkite nuotrauką
+              </label>
+              <div class="relative">
+                <input
+                  type="file"
+                  id="fileUpload"
+                  name="fileUpload"
+                  accept=".png, .jpg, .jpeg, .bmp, .gif"
+                  class="absolute opacity-0 w-full h-full cursor-pointer"
+                  onchange="displayFileNameAndPreview()"
+                />
+                <button
+                  type="button"
+                  class="text-white bg-blue-600 py-2 px-3 mt-3 rounded-lg text-center hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  Pasirinkite nuotrauką
+                </button>
+              </div>
+              <p id="fileName" class="mt-2 text-gray-600"></p>
+            </div>
+
+            <div id="imagePreview" class="mt-4 hidden">
+              <p class="text-gray-700">Pasirinkta nuotrauka:</p>
+              <img
+                id="previewImage"
+                src=""
+                alt="Selected Image"
+                class="mt-2 rounded-lg max-w-xs"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-200"
+            >
+              Pridėti pasirinktą nuotrauką
+            </button>
+          </form>
+        </div>
+      </main>
+
+      <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        menuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        function displayFileNameAndPreview() {
+          const fileInput = document.getElementById("fileUpload");
+          const fileNameDisplay = document.getElementById("fileName");
+          const filePreview = document.getElementById("imagePreview");
+          const previewImage = document.getElementById("previewImage");
+
+          const file = fileInput.files[0];
+
+          if (file) {
+            fileNameDisplay.textContent = `Pasirinktos nuotraukos pavadinimas: ${file.name}`;
+
+            filePreview.classList.remove("hidden");
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              previewImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+          } else {
+            filePreview.classList.add("hidden");
+            fileNameDisplay.textContent = "";
+          }
+        }
+      </script>
+    </body>
+  </body>
+</html>
