@@ -1,9 +1,9 @@
-import Button from "@mui/material/Button";
+import Register from "./pages/Register";
 
 function App() {
   return (
     <>
-      <Button variant="contained">Tekstas</Button>
+      <Register />
     </>
   );
 }
