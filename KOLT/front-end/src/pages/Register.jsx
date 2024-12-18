@@ -1,17 +1,17 @@
-import {
-  Button,
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-} from "@mui/material";
+import { Button, IconButton, InputAdornment } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
+import { registrationSchema } from "../utils/validations/AuthSchema";
 
 export default function Register() {
+  const [errors, setErrors] = useState({
+    username: "",
+    email: "",
+    password: "",
+    repeatedPassword: "",
+  });
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatedPassword, setRepeatedShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -41,7 +41,63 @@ export default function Register() {
     const registrationData = {};
 
     formData.forEach((val, key) => (registrationData[key] = val));
-    console.log(registrationData);
+    if (registrationData.password !== registrationData.repeatedPassword) {
+      setErrors((current) => ({
+        ...current,
+        password: "Passwords does not match!",
+        repeatedPassword: "Passwords does not match!",
+      }));
+      return;
+    }
+
+    resetErrors();
+    const validationResult = registrationSchema.safeParse(registrationData);
+
+    if (!validationResult.success) {
+      resetErrors();
+
+      validationResult.error.issues.forEach((issue) => {
+        setErrors((current) => ({
+          ...current,
+          [issue.path[0]]: issue.message,
+        }));
+      });
+      return;
+    }
+
+    resetErrors();
+    const promise = await fetch("/server/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(registrationData),
+    });
+    if (promise.ok) {
+      window.location.href = "/";
+    } else {
+      const response = await promise.json();
+
+      if (response.error && Array.isArray(response.error)) {
+        response.error.forEach((issue) => {
+          setErrors((current) => ({
+            ...current,
+            [issue.path[0]]: issue.message,
+          }));
+        });
+      } else {
+        alert(response.message);
+      }
+    }
+  }
+
+  function resetErrors() {
+    setErrors({
+      username: "",
+      email: "",
+      password: "",
+      repeatedPassword: "",
+    });
   }
 
   return (
@@ -54,6 +110,8 @@ export default function Register() {
           onSubmit={handleRegister}
         >
           <TextField
+            error={!!errors.username}
+            helperText={errors.username}
             id="outlined-basic"
             label="Username"
             variant="outlined"
@@ -61,22 +119,25 @@ export default function Register() {
             fullWidth
           />
           <TextField
+            error={!!errors.email}
+            helperText={errors.email}
             id="outlined-basic"
             label="Email"
             name="email"
             variant="outlined"
             fullWidth
           />
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? "text" : "password"}
-              fullWidth
-              name="password"
-              endAdornment={
+          <TextField
+            error={!!errors.password}
+            helperText={errors.password}
+            variant="outlined"
+            id="password"
+            type={showPassword ? "text" : "password"}
+            fullWidth
+            name="password"
+            label="Password"
+            InputProps={{
+              endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
                     aria-label={
@@ -92,20 +153,21 @@ export default function Register() {
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
-              }
-              label="Password"
-            />
-          </FormControl>
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showRepeatedPassword ? "text" : "password"}
-              fullWidth
-              name="repeatedPassword"
-              endAdornment={
+              ),
+            }}
+          />
+
+          <TextField
+            variant="outlined"
+            error={!!errors.repeatedPassword}
+            helperText={errors.repeatedPassword}
+            id="repeatedPassword"
+            type={showRepeatedPassword ? "text" : "password"}
+            fullWidth
+            name="repeatedPassword"
+            label="Confirm Password"
+            InputProps={{
+              endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
                     aria-label={
@@ -118,13 +180,12 @@ export default function Register() {
                     onMouseUp={handleMouseUpRepeatedPassword}
                     edge="end"
                   >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                    {showRepeatedPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
-              }
-              label="Password"
-            />
-          </FormControl>
+              ),
+            }}
+          />
 
           <Button variant="contained" type="submit" fullWidth>
             Register In

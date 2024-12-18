@@ -1,12 +1,4 @@
-import {
-  Button,
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField,
-} from "@mui/material";
+import { Button, IconButton, InputAdornment, TextField } from "@mui/material";
 import { useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -44,16 +36,15 @@ export default function Login() {
             name="emailOrUsername"
             fullWidth
           />
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? "text" : "password"}
-              fullWidth
-              name="password"
-              endAdornment={
+          <TextField
+            variant="outlined"
+            id="password"
+            type={showPassword ? "text" : "password"}
+            fullWidth
+            name="password"
+            label="Password"
+            InputProps={{
+              endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
                     aria-label={
@@ -69,10 +60,9 @@ export default function Login() {
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
-              }
-              label="Password"
-            />
-          </FormControl>
+              ),
+            }}
+          />
 
           <Button variant="contained" type="submit" fullWidth>
             Login In
