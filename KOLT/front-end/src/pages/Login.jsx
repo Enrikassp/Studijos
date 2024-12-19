@@ -21,7 +21,19 @@ export default function Login() {
     const loginData = {};
 
     formData.forEach((val, key) => (loginData[key] = val));
-    console.log(loginData);
+    const promise = await fetch("/server/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    });
+
+    if (promise.ok) window.location.href = "/";
+    else {
+      const respone = await promise.json();
+      alert(respone.message);
+    }
   }
 
   return (
@@ -33,7 +45,7 @@ export default function Login() {
             id="outlined-basic"
             label="Username / Email"
             variant="outlined"
-            name="emailOrUsername"
+            name="usernameOrEmail"
             fullWidth
           />
           <TextField
