@@ -98,3 +98,10 @@ export async function logout(req, res) {
   req.session.destroy();
   res.status(200).json({ message: "You logged out successfully" });
 }
+
+export async function checkSession(req, res) {
+  if (!req.session || !req.session.isLogged) {
+    return;
+  }
+  res.status(200).json({ message: "User logged in", session: req.session });
+}

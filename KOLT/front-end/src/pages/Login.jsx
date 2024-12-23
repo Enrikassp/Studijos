@@ -1,11 +1,12 @@
 import { Button, IconButton, InputAdornment, TextField } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-
+import SessionContext from "../context/SessionContext";
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const { setSessionState } = useContext(SessionContext);
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -29,8 +30,16 @@ export default function Login() {
       body: JSON.stringify(loginData),
     });
 
-    if (promise.ok) window.location.href = "/";
-    else {
+    if (promise.ok) {
+      window.location.href = "/";
+      setSessionState({
+        user: {
+          email: loginData.email,
+          username: loginData.username,
+        },
+        isLogged: true,
+      });
+    } else {
       const respone = await promise.json();
       alert(respone.message);
     }
