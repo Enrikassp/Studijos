@@ -1,13 +1,11 @@
 import { Button, IconButton, InputAdornment, TextField } from "@mui/material";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import SessionContext from "../context/SessionContext";
+import useLogin from "../custom-hooks/useLogin";
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const { setSessionState } = useContext(SessionContext);
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -15,41 +13,13 @@ export default function Login() {
   const handleMouseUpPassword = (event) => {
     event.preventDefault();
   };
-
-  async function handleLogin(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const loginData = {};
-
-    formData.forEach((val, key) => (loginData[key] = val));
-    const promise = await fetch("/server/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginData),
-    });
-
-    if (promise.ok) {
-      window.location.href = "/";
-      setSessionState({
-        user: {
-          email: loginData.email,
-          username: loginData.username,
-        },
-        isLogged: true,
-      });
-    } else {
-      const respone = await promise.json();
-      alert(respone.message);
-    }
-  }
+  const login = useLogin();
 
   return (
     <main className="bg-slate-200 flex flex-col justify-center place-items-center h-[100vh] select-none">
       <div className="bg-white rounded p-8 shadow-md">
         <LoginHeader />
-        <form className="flex flex-col gap-2 w-[400px]" onSubmit={handleLogin}>
+        <form className="flex flex-col gap-2 w-[400px]" onSubmit={login}>
           <TextField
             id="outlined-basic"
             label="Username / Email"

@@ -2,103 +2,21 @@ import { Button, IconButton, InputAdornment } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useState } from "react";
-import { registrationSchema } from "../utils/validations/AuthSchema";
+import useRegister from "../custom-hooks/useRegister";
+import useShowPasswords from "../custom-hooks/useShowPasswords";
 
 export default function Register() {
-  const [errors, setErrors] = useState({
-    username: "",
-    email: "",
-    password: "",
-    repeatedPassword: "",
-  });
-  const [showPassword, setShowPassword] = useState(false);
-  const [showRepeatedPassword, setRepeatedShowPassword] = useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handleMouseUpPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handleClickShowRepeatedPassword = () =>
-    setRepeatedShowPassword((show) => !show);
-
-  const handleMouseDownRepeatedPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handleMouseUpRepeatedPassword = (event) => {
-    event.preventDefault();
-  };
-
-  async function handleRegister(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const registrationData = {};
-
-    formData.forEach((val, key) => (registrationData[key] = val));
-    if (registrationData.password !== registrationData.repeatedPassword) {
-      setErrors((current) => ({
-        ...current,
-        password: "Passwords does not match!",
-        repeatedPassword: "Passwords does not match!",
-      }));
-      return;
-    }
-
-    resetErrors();
-    const validationResult = registrationSchema.safeParse(registrationData);
-
-    if (!validationResult.success) {
-      resetErrors();
-
-      validationResult.error.issues.forEach((issue) => {
-        setErrors((current) => ({
-          ...current,
-          [issue.path[0]]: issue.message,
-        }));
-      });
-      return;
-    }
-
-    resetErrors();
-    const promise = await fetch("/server/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(registrationData),
-    });
-    if (promise.ok) {
-      window.location.href = "/";
-    } else {
-      const response = await promise.json();
-
-      if (response.error && Array.isArray(response.error)) {
-        response.error.forEach((issue) => {
-          setErrors((current) => ({
-            ...current,
-            [issue.path[0]]: issue.message,
-          }));
-        });
-      } else {
-        alert(response.message);
-      }
-    }
-  }
-
-  function resetErrors() {
-    setErrors({
-      username: "",
-      email: "",
-      password: "",
-      repeatedPassword: "",
-    });
-  }
+  const { handleRegister, errors } = useRegister();
+  const {
+    showPassword,
+    showRepeatedPassword,
+    handleClickShowPassword,
+    handleClickShowRepeatedPassword,
+    handleMouseDownPassword,
+    handleMouseUpPassword,
+    handleMouseDownRepeatedPassword,
+    handleMouseUpRepeatedPassword,
+  } = useShowPasswords();
 
   return (
     <main className="bg-slate-200 flex flex-col justify-center place-items-center h-[100vh] select-none">

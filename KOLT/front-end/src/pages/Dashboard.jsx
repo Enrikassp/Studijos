@@ -1,29 +1,27 @@
 import { useContext } from "react";
 import SessionContext from "../context/SessionContext";
-export default function Dashboard() {
-  const { sessionState, setSessionState } = useContext(SessionContext);
-  async function logout() {
-    const promise = await fetch("/server/api/auth/logout");
+import useLogout from "../custom-hooks/useLogout";
+import Paper from "@mui/material/Paper";
+import ScootersTable from "../components/ScootersTable";
 
-    if (promise.ok) {
-      window.location.href = "/login";
-      setSessionState({
-        user: {
-          email: "",
-          username: "",
-        },
-        isLogged: true,
-      });
-    } else {
-      const response = await promise.json();
-      alert(response.message);
-    }
-  }
+export default function Dashboard() {
+  const { sessionState } = useContext(SessionContext);
+  const logout = useLogout();
+
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <h2>Prisijungęs kaip: {sessionState.user.username}</h2>
-      <button onClick={logout}>Log out</button>
-    </div>
+    <main id="dashboard" className="m-2 box-border">
+      <div className="main-grid">
+        <Paper className="item nav">
+          <h1>Dashboard</h1>
+          <h2>Prisijungęs kaip: {sessionState.user.username}</h2>
+          <button onClick={logout}>Log out</button>
+        </Paper>
+        <Paper className="item item-1 overflow-y-auto">
+          <ScootersTable />
+        </Paper>
+        <Paper className="item item-2">item-2</Paper>
+        <Paper className="item item-3">item-3</Paper>
+      </div>
+    </main>
   );
 }

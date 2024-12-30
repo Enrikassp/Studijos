@@ -3,40 +3,10 @@ import SessionContext from "./context/SessionContext";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
-import { useEffect, useState } from "react";
+import { useSessionState } from "./custom-hooks/useSessionState";
 
 function App() {
-  const [sessionState, setSessionState] = useState({
-    user: { email: "", username: "" },
-    isLogged: false,
-  });
-
-  useEffect(() => {
-    async function checkSession() {
-      const response = await fetch("/server/api/auth/check-session", {
-        method: "GET",
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setSessionState({
-          user: {
-            email: data.session.user.email || "",
-            username: data.session.user.username || "",
-          },
-          isLogged: true,
-        });
-      } else {
-        setSessionState({
-          user: { email: "", username: "" },
-          isLogged: false,
-        });
-      }
-    }
-
-    checkSession();
-  }, []);
-
+  const { sessionState, setSessionState } = useSessionState();
   return (
     <SessionContext.Provider value={{ sessionState, setSessionState }}>
       <BrowserRouter>
