@@ -13,57 +13,12 @@ import {
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { useState } from "react";
-
-const scooters = [
-  {
-    id: 1,
-    registrationCode: "87986554",
-    lastUseTime: "2024-12-12T00:00:00.000Z",
-    isBusy: true,
-    totalRide: 47.8,
-    rideTariffPerKm: 0.15,
-    leaseTariffPerMin: 0.15,
-  },
-  {
-    id: 2,
-    registrationCode: "57489234",
-    lastUseTime: "2024-12-10T00:00:00.000Z",
-    isBusy: false,
-    totalRide: 123.5,
-    rideTariffPerKm: 0.2,
-    leaseTariffPerMin: 0.18,
-  },
-  {
-    id: 3,
-    registrationCode: "32981723",
-    lastUseTime: "2024-12-15T00:00:00.000Z",
-    isBusy: true,
-    totalRide: 89.6,
-    rideTariffPerKm: 0.25,
-    leaseTariffPerMin: 0.22,
-  },
-  {
-    id: 4,
-    registrationCode: "64598234",
-    lastUseTime: "2024-11-30T00:00:00.000Z",
-    isBusy: false,
-    totalRide: 67.2,
-    rideTariffPerKm: 0.15,
-    leaseTariffPerMin: 0.13,
-  },
-  {
-    id: 5,
-    registrationCode: "12837465",
-    lastUseTime: "2024-12-20T00:00:00.000Z",
-    isBusy: true,
-    totalRide: 210.3,
-    rideTariffPerKm: 0.3,
-    leaseTariffPerMin: 0.28,
-  },
-];
+import { useContext } from "react";
+import ScootersContext from "../context/ScootersContext";
 
 export default function ScootersTable() {
+  const { scooters } = useContext(ScootersContext);
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
@@ -87,7 +42,18 @@ export default function ScootersTable() {
 }
 
 function Row({ data }) {
-  const [open, setOpen] = useState(false);
+  const { selectScooter, selectedScooterId, clearSelectedScooter } =
+    useContext(ScootersContext);
+  const open = selectedScooterId === data.id;
+
+  function selectOrClearScooter() {
+    if (open) {
+      return clearSelectedScooter();
+    }
+
+    selectScooter(data.id);
+  }
+
   return (
     <>
       <TableRow>
@@ -95,7 +61,7 @@ function Row({ data }) {
           <IconButton
             aria-label="expand row"
             size="small"
-            onClick={() => setOpen(!open)}
+            onClick={selectOrClearScooter}
           >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
