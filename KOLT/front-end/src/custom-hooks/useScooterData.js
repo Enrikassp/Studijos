@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import scooters from "../scootersData";
 
 export default function useScooterData() {
   const [allScooters, setAllScooters] = useState([]);
@@ -8,16 +7,24 @@ export default function useScooterData() {
 
   useEffect(() => {
     async function fetchScooterData() {
-      // FETCH API FOR SCOOTERS
-      setAllScooters(scooters);
+      const promise = await fetch("/server/api/scooters");
+      const scootersData = await promise.json();
+      setAllScooters(scootersData);
     }
     fetchScooterData();
   }, []);
 
+  function addNewScooter(newScooter) {
+    setAllScooters((c) => [
+      ...c,
+      { ...newScooter, scooter_lease_histories: [] },
+    ]);
+  }
+
   function selectScooter(id) {
     const foundScooter = allScooters.find((scooter) => scooter.id === id);
     if (!foundScooter) return;
-    setSelectedScooterHistory(foundScooter.history);
+    setSelectedScooterHistory(foundScooter.scooter_lease_histories);
     setSelectedScooterId(foundScooter.id);
   }
 
@@ -28,6 +35,7 @@ export default function useScooterData() {
 
   return {
     allScooters,
+    addNewScooter,
     selectedScooterHistory,
     selectScooter,
     clearSelectedScooter,

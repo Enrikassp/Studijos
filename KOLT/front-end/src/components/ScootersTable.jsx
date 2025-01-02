@@ -53,7 +53,6 @@ function Row({ data }) {
 
     selectScooter(data.id);
   }
-
   return (
     <>
       <TableRow>
@@ -67,12 +66,14 @@ function Row({ data }) {
           </IconButton>
         </TableCell>
 
-        <TableCell>{data.id}</TableCell>
-        <TableCell>{data.registrationCode}</TableCell>
-        <TableCell>
-          {new Date(data.lastUseTime).toLocaleDateString("lt-LT")}
+        <TableCell align="center">{data.id}</TableCell>
+        <TableCell align="center">{data.registrationCode}</TableCell>
+        <TableCell align="center">
+          {data?.lastUseTime
+            ? new Date(data.lastUseTime).toLocaleDateString("lt-LT")
+            : "Scooter was never used"}
         </TableCell>
-        <TableCell className="flex">
+        <TableCell align="center" className="flex ">
           <Chip
             label={data.isBusy ? "Busy" : "Available"}
             color={data.isBusy ? "error" : "success"}

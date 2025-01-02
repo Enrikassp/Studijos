@@ -7,32 +7,7 @@ const scooters = [
     totalRide: 47.8,
     rideTariffPerKm: 0.15,
     leaseTariffPerMin: 0.15,
-    history: [
-      {
-        startingRideKm: 48.8,
-        endingRideKm: 49.8,
-        startingLeaseDate: "2024-12-15T00:00:00.000Z",
-        endingLeaseDate: "2024-12-17T00:00:00.000Z",
-        leasingPrice: 28.76,
-        city: "Vilnius",
-      },
-      {
-        startingRideKm: 50.8,
-        endingRideKm: 51.8,
-        startingLeaseDate: "2024-12-18T00:00:00.000Z",
-        endingLeaseDate: "2024-12-19T00:00:00.000Z",
-        leasingPrice: 15.3,
-        city: "Kaunas",
-      },
-      {
-        startingRideKm: 52.0,
-        endingRideKm: 53.0,
-        startingLeaseDate: "2024-12-20T00:00:00.000Z",
-        endingLeaseDate: "2024-12-21T00:00:00.000Z",
-        leasingPrice: 22.4,
-        city: "Siauliai",
-      },
-    ],
+    history: [],
   },
   {
     id: 2,
