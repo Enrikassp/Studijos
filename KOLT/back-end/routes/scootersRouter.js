@@ -6,6 +6,6 @@ const router = express.Router();
 router.get("/", scootersController.getAllScooters);
 router.get("/:id", scootersController.getScooterById);
 router.post("/", scootersController.createScooter);
-// router.delete("/:id", scootersController.deleteScooter);
+router.delete("/:id", scootersController.deleteScooterById);
 // router.put("/:id", scootersController.updateScooter);
 export default router;

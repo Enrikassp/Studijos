@@ -4,6 +4,7 @@ export default function useScooterData() {
   const [allScooters, setAllScooters] = useState([]);
   const [selectedScooterHistory, setSelectedScooterHistory] = useState([]);
   const [selectedScooterId, setSelectedScooterId] = useState(null);
+  const [selectedScooter, setSelectedScooter] = useState(null);
 
   useEffect(() => {
     async function fetchScooterData() {
@@ -26,11 +27,18 @@ export default function useScooterData() {
     if (!foundScooter) return;
     setSelectedScooterHistory(foundScooter.scooter_lease_histories);
     setSelectedScooterId(foundScooter.id);
+    setSelectedScooter(foundScooter);
   }
 
   function clearSelectedScooter() {
     setSelectedScooterHistory([]);
     setSelectedScooterId(null);
+    setSelectedScooter(null);
+  }
+
+  function deleteScooter(id) {
+    const filteredScooters = allScooters.filter((scooter) => scooter.id !== id);
+    setAllScooters(filteredScooters);
   }
 
   return {
@@ -38,7 +46,9 @@ export default function useScooterData() {
     addNewScooter,
     selectedScooterHistory,
     selectScooter,
+    selectedScooter,
     clearSelectedScooter,
     selectedScooterId,
+    deleteScooter,
   };
 }
