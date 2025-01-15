@@ -1,14 +1,54 @@
 import { Button, Dialog, Paper, TextField } from "@mui/material";
 import { useContext } from "react";
 import ScootersContext from "../context/ScootersContext";
+import { ScooterUpdateSchema } from "../utils/validations/ScooterSchema";
 
 export default function ScootersUpdateDialog({
   isUpdateModalOpen,
   setUpdateModalOpen,
 }) {
-  const { selectedScooter } = useContext(ScootersContext);
-  async function handleSubmit() {}
-  console.log(selectedScooter?.registrationCode);
+  const { selectedScooter, updateScooter } = useContext(ScootersContext);
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const values = ConvertFormToObject(e, formData);
+    const validationResult = ScooterUpdateSchema.safeParse(values);
+
+    if (!validationResult.success)
+      alert(validationResult.error.issues[0].message);
+
+    const promise = await fetch(`/server/api/scooters/${selectedScooter.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    const response = await promise.json();
+
+    if (!promise.ok) {
+      alert(response.message);
+    } else {
+      updateScooter(selectedScooter.id, values);
+      setUpdateModalOpen(false);
+    }
+  }
+
+  function ConvertFormToObject(event, formData) {
+    const newScooterData = {};
+
+    for (const [key, val] of formData.entries()) {
+      const inputElement = event.target.elements[key];
+      if (inputElement && inputElement.type === "number") {
+        newScooterData[key] = Number(val);
+      } else {
+        newScooterData[key] = val;
+      }
+    }
+
+    return newScooterData;
+  }
+
   return (
     <Dialog
       open={isUpdateModalOpen}
@@ -48,7 +88,7 @@ export default function ScootersUpdateDialog({
 
           <div className="flex gap-2 justify-end">
             <Button variant="outlined" type="submit">
-              Create
+              Update
             </Button>
             <Button
               variant="outlined"

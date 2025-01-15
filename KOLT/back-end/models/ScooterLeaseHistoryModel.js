@@ -35,6 +35,7 @@ const ScooterLeaseHistoryModel = sequelize.define(
 );
 ScooterModel.hasMany(ScooterLeaseHistoryModel, {
   foreignKey: { allowNull: false, name: "scooterId" },
+  as: "history",
 });
 
 export default ScooterLeaseHistoryModel;

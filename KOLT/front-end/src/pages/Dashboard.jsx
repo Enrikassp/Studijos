@@ -3,7 +3,7 @@ import SessionContext from "../context/SessionContext";
 import useLogout from "../custom-hooks/useLogout";
 import Paper from "@mui/material/Paper";
 import ScootersTable from "../components/ScootersTable";
-import { Button, Typography } from "@mui/material";
+import { Button, TablePagination, Typography } from "@mui/material";
 import ScootersHistoryTable from "../components/ScootersHistoryTable";
 import ScootersContext from "../context/ScootersContext";
 import useScooterData from "../custom-hooks/useScooterData";
@@ -20,10 +20,11 @@ export default function Dashboard() {
     addNewScooter,
     deleteScooter,
     selectedScooter,
+    pagination,
+    scootersCount,
+    updateScooter,
+    updateScooterHistory,
   } = useScooterData();
-
-  const busyScooters = allScooters.filter((scooter) => scooter.isBusy);
-  const availableScooters = allScooters.filter((scooter) => !scooter.isBusy);
 
   return (
     <ScootersContext.Provider
@@ -36,6 +37,9 @@ export default function Dashboard() {
         addNewScooter,
         deleteScooter,
         selectedScooter,
+        scootersCount,
+        updateScooter,
+        updateScooterHistory,
       }}
     >
       <main id="dashboard" className="container">
@@ -50,19 +54,33 @@ export default function Dashboard() {
             </div>
             <div className="text-right">
               <Typography>
-                Total Scooters: <b>{allScooters.length}</b>
+                Total Scooters: <b>{scootersCount.allScootersCount}</b>
               </Typography>
               <Typography>
-                Busy Scooters: <b>{busyScooters.length}</b>
+                Busy Scooters: <b>{scootersCount.busyScootersCount}</b>
               </Typography>
               <Typography>
-                Available Scooters: <b>{availableScooters.length}</b>
+                Available Scooters:
+                <b>{scootersCount.availableScootersCount}</b>
               </Typography>
             </div>
           </Paper>
           <Paper className="item item-1 overflow-y-auto">
             <PaperHeader>Scooters</PaperHeader>
             <ScootersTable />
+            <TablePagination
+              component="div"
+              count={scootersCount.allScootersCount}
+              page={pagination.pageNumber}
+              onPageChange={(_, page) => {
+                pagination.setPageNumber(page);
+              }}
+              rowsPerPage={pagination.rowsPerPage}
+              onRowsPerPageChange={(e) => {
+                pagination.setRowsPerPage(e.target.value);
+              }}
+              rowsPerPageOptions={[5, 10, 15, 20]}
+            />
           </Paper>
           <Paper className="item item-2">
             <PaperHeader>Scooter History</PaperHeader>

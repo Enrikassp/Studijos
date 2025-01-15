@@ -7,8 +7,13 @@ import ScootersUpdateDialog from "./ScootersUpdateDialog";
 export default function ScooterActions() {
   const [isCreateModalOpen, setCreateModalOpen] = useState(false);
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
-  const { selectedScooterId, deleteScooter: deleteFromArray } =
-    useContext(ScootersContext);
+  const {
+    selectedScooterId,
+    deleteScooter: deleteFromArray,
+    selectedScooter,
+    updateScooterHistory,
+    updateScooter,
+  } = useContext(ScootersContext);
   const [snackbarOptions, setSnackbarOptions] = useState({
     variant: "info",
     message: "",
@@ -36,9 +41,60 @@ export default function ScooterActions() {
       });
     }
   }
+  async function leaseScooter() {
+    const city = prompt("Įveskite miestą kuriame nuomojatės paspirtuką");
 
+    const promise = await fetch(
+      `/server/api/scooters-lease-history/start-lease/${selectedScooter.id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ city }),
+      }
+    );
+
+    if (promise.ok) {
+      const response = await promise.json();
+      console.log(response);
+    }
+  }
+  async function endLease() {
+    const rideKm = +prompt("Kiek km buvo nuvažiuota?");
+    if (rideKm === 0) return;
+    else if (isNaN(rideKm)) {
+      alert("Nuvažiuotas kilometrų skaičius buvo neteisingai įvestas");
+      endLease(); //rekursija
+    }
+
+    const promise = await fetch(
+      `/server/api/scooters-lease-history/end-lease/${selectedScooter.id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ rideKm }),
+      }
+    );
+    if (promise.ok) {
+      const response = await promise.json();
+      console.log(response);
+      updateScooterHistory(response.history);
+      updateScooter(response.scooter.id, response.scooter);
+    }
+  }
   return (
-    <div className="mt-[2.5rem] flex justify-around">
+    <div className="mt-[2.5rem] flex justify-around gap-5">
+      <Button
+        variant="outlined"
+        color={selectedScooter?.isBusy ? "warning" : "primary"}
+        disabled={selectedScooterId === null}
+        onClick={selectedScooter?.isBusy ? endLease : leaseScooter}
+      >
+        {selectedScooter?.isBusy ? "Unrent Scooter" : "Rent Scooter"}
+      </Button>
       <Button
         variant="outlined"
         color="success"
