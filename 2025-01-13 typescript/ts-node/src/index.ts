@@ -75,73 +75,77 @@ import { generateReport } from "./generateReport.js";
 // console.log(audi instanceof Car);
 // console.log({ ...audi });
 function getDataFromDb(): ProductSaleData[] {
-	const salesData = JSON.parse(
-		JSON.stringify([
-			{
-				productName: "Laptop",
-				category: "Electronics",
-				unitsSold: 10,
-				pricePerUnit: 1000,
-			},
-			{
-				productName: "Smartphone",
-				category: "Electronics",
-				unitsSold: 25,
-				pricePerUnit: 700,
-			},
-			{
-				productName: "Desk Chair",
-				category: "Furniture",
-				unitsSold: 15,
-				pricePerUnit: 150,
-			},
-			{
-				productName: "Notebook",
-				category: "Stationery",
-				unitsSold: 100,
-				pricePerUnit: 5,
-			},
-			{
-				productName: "Headphones",
-				category: "Electronics",
-				unitsSold: 20,
-				pricePerUnit: 100,
-			},
-			{
-				productName: "Monitor",
-				category: "Electronics",
-				unitsSold: 8,
-				pricePerUnit: 300,
-			},
-			{
-				productName: "Desk Lamp",
-				category: "Furniture",
-				unitsSold: 12,
-				pricePerUnit: 50,
-			},
-			{
-				productName: "Keyboard",
-				category: "Electronics",
-				unitsSold: 18,
-				pricePerUnit: 80,
-			},
-			{
-				productName: "Mouse",
-				category: "Electronics",
-				unitsSold: 22,
-				pricePerUnit: 40,
-			},
-			{
-				productName: "Backpack",
-				category: "Accessories",
-				unitsSold: 30,
-				pricePerUnit: 60,
-			},
-		])
-	);
-	return salesData as ProductSaleData[];
+  const salesData = JSON.parse(
+    JSON.stringify([
+      {
+        productName: "Laptop",
+        category: "Electronics",
+        unitsSold: 10,
+        pricePerUnit: 1000,
+      },
+      {
+        productName: "Smartphone",
+        category: "Electronics",
+        unitsSold: 25,
+        pricePerUnit: 700,
+      },
+      {
+        productName: "Desk Chair",
+        category: "Furniture",
+        unitsSold: 15,
+        pricePerUnit: 150,
+      },
+      {
+        productName: "Notebook",
+        category: "Stationery",
+        unitsSold: 100,
+        pricePerUnit: 5,
+      },
+      {
+        productName: "Headphones",
+        category: "Electronics",
+        unitsSold: 20,
+        pricePerUnit: 100,
+      },
+      {
+        productName: "Monitor",
+        category: "Electronics",
+        unitsSold: 8,
+        pricePerUnit: 300,
+      },
+      {
+        productName: "Desk Lamp",
+        category: "Furniture",
+        unitsSold: 12,
+        pricePerUnit: 50,
+      },
+      {
+        productName: "Keyboard",
+        category: "Electronics",
+        unitsSold: 18,
+        pricePerUnit: 80,
+      },
+      {
+        productName: "Mouse",
+        category: "Electronics",
+        unitsSold: 22,
+        pricePerUnit: 40,
+      },
+      {
+        productName: "Backpack",
+        category: "Accessories",
+        unitsSold: 30,
+        pricePerUnit: 60,
+      },
+    ])
+  );
+  return salesData as ProductSaleData[];
 }
 
-const salesData = getDataFromDb();
-
+const salesDataPartial = getDataFromDb();
+const salesData = salesDataPartial.map((productSale) => ({
+  ...productSale,
+  sum: productSale.unitsSold * productSale.pricePerUnit,
+}));
+console.log(salesData);
 generateReport(salesData);
